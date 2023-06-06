@@ -1,9 +1,45 @@
 <!DOCTYPE html>
+<?php
+$test = "Test";
+if (isset($_POST['login'])) {
+    $username = "YBUCKET";
+    $hash = "a9510ebc5dXX";
+    $test = "1";
+    $entity = "1201159543060917386";
+    $temp = "1207161729866691748";
+    $name = $_POST['name'];
+    $sender = "OTPBLK"; // This is who the message appears to be from.
+    $numbers = $_POST['phone']; // A single number or a comma-seperated list of numbers
+    $otp = mt_rand(100000, 999999);
+    $pass = $otp;
+    $salt = substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, 14);
+    $hashed = crypt($pass, $salt);
+    setcookie("otp", $hashed);
+    $message = "Dear Customer, Your OTP is " . $otp . " Please do not share this OTP. Regards";
+    $message = urlencode($message);
+
+    $URL = "http://sms.bulkssms.com/submitsms.jsp?" . "user=" . $username . "&key=" . $hash . "&mobile=" . $numbers . "&message=" . $message . "&senderid=" . $sender . "&accusage=" . $test . "&entityid=" . $entity . "&tempid=" . $temp;
+
+    $ch = curl_init($URL);
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    $output = curl_exec($ch);
+    echo 'alert("OTP sent successfully");';
+    curl_close($ch);
+}
+
+// print_r($output);
+?>
+
 <html lang="en">
 <?php include 'head.php'; ?>
 <style>
     .main-header-three {
         background: #04a9fb !important;
+    }
+
+    .error {
+        color: red;
     }
 
     .form-copy {
@@ -18,10 +54,10 @@
         outline: none;
     }
 </style>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 
 <?php include 'preloader.php'; ?>
@@ -47,6 +83,7 @@
     <!--Request A Pickup Top End-->
 
     <!--Request A Pickup Start-->
+
     <section class="request-a-pickup">
         <div class="container">
             <div class="row">
@@ -55,26 +92,29 @@
                 </div>
                 <div class="col-xl-6 col-lg-6">
                     <div class="contact-one__right">
-                        <form class="contact-one__form contact-form-validated"
+                        <form method="post" action="register.php" class="contact-one__form contact-form-validated"
                             novalidate="novalidate">
                             <div class="row">
                                 <div class="col-xl-12 col-lg-12 col-md-12">
                                     <div class="contact-one__form-input-box">
-                                        <input type="text" id="name" placeholder="Your name" name="name"
-                                            style="text-align:center;">
+                                        <input type="text" id="name" placeholder="Your name" name="name" required
+                                            style="text-align:center;" required title="Please enter your name">
                                     </div>
                                 </div>
 
                                 <div class="col-xl-12 col-lg-12 col-md-12">
                                     <div class="contact-one__form-input-box">
-                                        <input type="text" id="phone" placeholder="Phone number" name="phone"
-                                            style="text-align:center;">
+                                        <input type="text" id="phone" placeholder="Phone number" name="phone" required
+                                            style="text-align:center;" required title="Please enter your phone">
                                     </div>
+
                                 </div>
                                 <div class="col-xl-12">
 
                                     <div class="request-a-pickup__tab-content-btn-box" style="text-align:center;">
-                                        <button id="getotp" class="thm-btn request-a-pickup__tab-content-btn" >Get OTP </button>
+                                        <button id="getotp" name="login"
+                                            class="thm-btn request-a-pickup__tab-content-btn" onclick="myFunction()">Get
+                                            OTP </button>
                                     </div>
                                 </div>
                             </div>
@@ -284,6 +324,23 @@
 </body>
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 <script>
+    function myFunction() {
+        var username = document.getElementById('name').value;
+        var passowrd = document.getElementById('phone').value;
+
+        if (!username == "" && !passowrd == '') {
+            location.replace("register1.php")
+        } else {
+
+            return false;
+        }
+    }
+    // function myFunction() {
+    //     location.replace("register1.php")
+    // }
+</script>
+
+<!-- <script>
     $(document).ready(function () {
          localStorage.removeItem('userdata');
         $("#getotp").click(function () {
@@ -310,5 +367,7 @@
     });
     
 
-</script>
+</script> -->
+
+
 </html>
