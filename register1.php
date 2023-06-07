@@ -1,28 +1,4 @@
 <!DOCTYPE html>
-<?php
-
-$test="Test";
-if (isset($_POST['verify'])) {
-    $hash = $_COOKIE['otp'];
-    $verotp = $_POST['otp'];
-    $valid = hash_equals($hash, crypt($verotp, $hash));
-    echo $valid ? "logined successfully" : "otp worng";
-
-    //     if ($valid) {
-
-    //         echo ("logined successfully");
-
-
-
-    //     } else {
-
-    //         echo ("otp worng");
-
-    //     }
-
-}
-
-?>
 <html lang="en">
 <?php include 'head.php'; ?>
 <style>
@@ -73,18 +49,18 @@ if (isset($_POST['verify'])) {
                 </div>
                 <div class="col-xl-6 col-lg-6">
                     <div class="contact-one__right">
-                        <form class="contact-one__form contact-form-validated" method="post" action="register1.php">
+                        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" class="contact-one__form">
                             <div class="row">
                                 <div class="col-xl-12 col-lg-12 col-md-12">
                                     <div class="contact-one__form-input-box">
-                                        <input id="otp" type="text" placeholder="OTP" name="otp" maxlength="6"
+                                        <input id="otp" type="text" placeholder="OTP" name="verotp" maxlength="6"
                                             style="text-align:center;font-size:32px;">
                                     </div>
                                 </div>
                                 <div class="col-xl-12">
 
                                     <div class="request-a-pickup__tab-content-btn-box" style="text-align:center;">
-                                        <button id="btn-verify" name="verify" value="verify otp"
+                                        <button id="btn-verify" name="verify" type="submit"
                                             class="thm-btn request-a-pickup__tab-content-btn">Verify </button>
                                     </div>
                                 </div>
@@ -293,25 +269,55 @@ if (isset($_POST['verify'])) {
 <!-- template js -->
 <script src="assets/js/wostin.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-<!-- <script>
-    $(document).ready(function () {
-        $("#btn-verify").click(function () {
-            debugger;
-            var hash = Cookies.get('otp');
-            // var model = JSON.parse(atob(loc));
-            var otp = document.getElementById("otp");
-            var valid = hash_equals($hash, crypt($otp, $hash));
-            // echo $valid ? "logined successfully" : "otp worng";
-            if ($valid) {
-                window.location.href = "register2.php";
-            } else {
-                alert("otp worng");
-            }
-        });
-    });
+<script>
+    // $(document).ready(function () {
+    //     $("#btn-verify").click(function () {
+    //         debugger;
+    //         var hash = Cookies.get('otp');
+    //         // var model = JSON.parse(atob(loc));
+    //         var otp = document.getElementById("otp");
+    //         var valid = hash_equals($hash, crypt($otp, $hash));
+    //         // echo $valid ? "logined successfully" : "otp worng";
+    //         if ($valid) {
+    //             window.location.href = "register2.php";
+    //         } else {
+    //             alert("otp worng");
+    //         }
+    //     });
+    // });
+    function eraseCookie(name) {
+        document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    }
 
 
-</script> -->
+</script>
+<?php
+function debug_to_console($data)
+{
+    $output = $data;
+    if (is_array($output))
+        $output = implode(',', $output);
+    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    if (!isset($_COOKIE['EDJTSuwYbIsZvoCFGCBKdHERF'])) {
+        echo '<script>alert("OTP is not valid please try again");</script>';
+        exit;
+    }
+
+    $hash = $_COOKIE['EDJTSuwYbIsZvoCFGCBKdHERF'];
+    $verotp = $_POST['verotp'];
+    $valid = hash_equals($hash, crypt($verotp, $hash));
+    if ($valid) {
+        echo "<script> eraseCookie('EDJTSuwYbIsZvoCFGCBKdHERF'); location.href='register2.php'; </script>";
+        exit;
+    } else {
+        echo '<script>alert("OTP is not valid please try again");</script>';
+    }
+}
+?>
 </body>
 
 </html>

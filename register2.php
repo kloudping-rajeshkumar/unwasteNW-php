@@ -176,7 +176,7 @@
 
                                                         <div class="request-a-pickup__tab-content-btn-box"
                                                             style="text-align:right;">
-                                                            <button type="button" id="btn-proceed"
+                                                            <button type="submit" id="btn-proceed"
                                                                 class="thm-btn request-a-pickup__tab-content-btn"
                                                                 onclick="Postdata()">Proceed ></button>
                                                         </div>
@@ -675,14 +675,15 @@
 </script>
 <script>
     debugger;
-    var loc = localStorage.getItem('userdata');
+    var loc = localStorage.getItem('3eab60ec988c461f0cfc0e6ed6ed');
     var cache = JSON.parse(atob(loc));
     $(document).ready(function () {
 
         $("#firstname_single").val(cache.name);
-        $("#firstname_appartment").val(cache.name);
-        $("#firstname_single").val(cache.name);
+        $("#fullname_appartment").val(cache.name);
+        $("#fullname_commercial").val(cache.name);
         $("#mobileNumber_single").val(cache.phone);
+
 
     });
     function Postdata() {
@@ -742,7 +743,7 @@
             };
         }
         let encoded = window.btoa(JSON.stringify(model));
-        localStorage.setItem('userdata', encoded);
+        localStorage.setItem('3eab60ec988c461f0cfc0e6ed6ed', encoded);
         window.location.href = "new_user.php?firstname=" + model.firstname + "&email=" + model.emailAddress + "&orderid=" + model.orderid + "&address=" + model.address + "&amount=" + model.amount;
 
         // $.ajax({

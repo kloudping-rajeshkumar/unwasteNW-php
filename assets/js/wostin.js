@@ -325,6 +325,7 @@
 
   if ($(".contact-form-validated").length) {
     $(".contact-form-validated").validate({
+      
       // initialize the plugin
       rules: {
         name: {
@@ -342,6 +343,7 @@
         }
       },
       submitHandler: function (form) {
+        debugger
         // sending value with ajax request
         $.post(
           $(form).attr("action"),

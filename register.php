@@ -1,35 +1,5 @@
 <!DOCTYPE html>
-<?php
-$test = "Test";
-if (isset($_POST['login'])) {
-    $username = "YBUCKET";
-    $hash = "a9510ebc5dXX";
-    $test = "1";
-    $entity = "1201159543060917386";
-    $temp = "1207161729866691748";
-    $name = $_POST['name'];
-    $sender = "OTPBLK"; // This is who the message appears to be from.
-    $numbers = $_POST['phone']; // A single number or a comma-seperated list of numbers
-    $otp = mt_rand(100000, 999999);
-    $pass = $otp;
-    $salt = substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, 14);
-    $hashed = crypt($pass, $salt);
-    setcookie("otp", $hashed);
-    $message = "Dear Customer, Your OTP is " . $otp . " Please do not share this OTP. Regards";
-    $message = urlencode($message);
 
-    $URL = "http://sms.bulkssms.com/submitsms.jsp?" . "user=" . $username . "&key=" . $hash . "&mobile=" . $numbers . "&message=" . $message . "&senderid=" . $sender . "&accusage=" . $test . "&entityid=" . $entity . "&tempid=" . $temp;
-
-    $ch = curl_init($URL);
-    curl_setopt($ch, CURLOPT_HEADER, 0);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    $output = curl_exec($ch);
-    echo 'alert("OTP sent successfully");';
-    curl_close($ch);
-}
-
-// print_r($output);
-?>
 
 <html lang="en">
 <?php include 'head.php'; ?>
@@ -92,28 +62,32 @@ if (isset($_POST['login'])) {
                 </div>
                 <div class="col-xl-6 col-lg-6">
                     <div class="contact-one__right">
-                        <form method="post" action="register.php" class="contact-one__form contact-form-validated"
-                            novalidate="novalidate">
+                        <form method="post" action="" class="contact-one__form " id="validated">
                             <div class="row">
                                 <div class="col-xl-12 col-lg-12 col-md-12">
                                     <div class="contact-one__form-input-box">
-                                        <input type="text" id="name" placeholder="Your name" name="name" required
-                                            style="text-align:center;" required title="Please enter your name">
+                                        <input type="text" id="name" placeholder="Your name" name="name"
+                                            autocomplete="off" style="text-align:center;" required
+                                            title=" Please enter your name">
+
                                     </div>
                                 </div>
 
                                 <div class="col-xl-12 col-lg-12 col-md-12">
                                     <div class="contact-one__form-input-box">
-                                        <input type="text" id="phone" placeholder="Phone number" name="phone" required
-                                            style="text-align:center;" required title="Please enter your phone">
+                                        <input type="text" id="phone" placeholder="Phone number" name="phone"
+                                            autocomplete="off" style="text-align:center;" required
+                                            title=" Please enter mobile number" required>
+                                        <span class="error">
+
                                     </div>
 
                                 </div>
                                 <div class="col-xl-12">
 
                                     <div class="request-a-pickup__tab-content-btn-box" style="text-align:center;">
-                                        <button id="getotp" name="login"
-                                            class="thm-btn request-a-pickup__tab-content-btn" onclick="myFunction()">Get
+                                        <button id="getotp" name="login" type="submit"
+                                            class="thm-btn request-a-pickup__tab-content-btn">Get
                                             OTP </button>
                                     </div>
                                 </div>
@@ -315,59 +289,82 @@ if (isset($_POST['login'])) {
 <script src="assets/vendors/vegas/vegas.min.js"></script>
 <script src="assets/vendors/jquery-ui/jquery-ui.js"></script>
 <script src="assets/vendors/timepicker/timePicker.js"></script>
-
-
-
-
 <!-- template js -->
 <script src="assets/js/wostin.js"></script>
-</body>
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 <script>
-    function myFunction() {
-        var username = document.getElementById('name').value;
-        var passowrd = document.getElementById('phone').value;
-
-        if (!username == "" && !passowrd == '') {
-            location.replace("register1.php")
-        } else {
-
-            return false;
-        }
-    }
-    // function myFunction() {
-    //     location.replace("register1.php")
-    // }
-</script>
-
-<!-- <script>
     $(document).ready(function () {
-         localStorage.removeItem('userdata');
-        $("#getotp").click(function () {
-            debugger;
-            var model=  {
-                    name:$('#name').val(),
-                    phone:$('#phone').val(),
-                    otp:"123456"
-                };
-            if(model.name!='' && model.phone!='')
-            {
-                
-                let encoded = window.btoa(JSON.stringify(model));    
-                
-                localStorage.setItem('userdata',encoded);
-                
-                window.location.href = "register1.php";
+
+        $('#validated').validate({ // initialize the plugin
+            rules: {
+                name: {
+                    required: true,
+                    name: true
+                },
+                phone: {
+                    required: true,
+                    phone: true
+                }
             }
-            else if(localStorage.name=="false" && filename != 'register.php')
-            {
-                window.location.href = "register.php";
-            }  
         });
-    });
-    
 
-</script> -->
+    });</script>
+<script>
 
 
-</html>
+
+    function setCookie(name, value, days) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+
+    function setData(name, phone) {
+        var model = {
+            name: name,
+            phone: phone
+        };
+        let encoded = window.btoa(JSON.stringify(model));
+        localStorage.setItem('3eab60ec988c461f0cfc0e6ed6ed', encoded);
+        location.href = 'register1.php';
+    };
+</script>
+<?php
+$test = "Test";
+if (isset($_POST['login'])) {
+
+
+    $name = $_POST['name'];
+    $phone = $_POST['phone'];
+    $username = "YBUCKET";
+    $hash = "a9510ebc5dXX";
+    $test = "1";
+    $entity = "1201159543060917386";
+    $temp = "1207161729866691748";
+    $sender = "OTPBLK"; // This is who the message appears to be from.
+    // A single number or a comma-seperated list of numbers
+    $otp = mt_rand(100000, 999999);
+    $salt = substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, 14);
+    $hashed = crypt($otp, $salt);
+    $message = "Dear Customer, Your OTP is " . $otp . " Please do not share this OTP. Regards";
+    $message = urlencode($message);
+
+    $URL = "http://sms.bulkssms.com/submitsms.jsp?" . "user=" . $username . "&key=" . $hash . "&mobile=" . $phone . "&message=" . $message . "&senderid=" . $sender . "&accusage=" . $test . "&entityid=" . $entity . "&tempid=" . $temp;
+
+    $ch = curl_init($URL);
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    $output = curl_exec($ch);
+    curl_close($ch);
+    echo "<script>setCookie('EDJTSuwYbIsZvoCFGCBKdHERF','$hashed',1);setData('$name','$phone');</script>";
+
+}
+
+// print_r($output);
+?>
+</body>
+/html>

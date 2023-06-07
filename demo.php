@@ -1,76 +1,33 @@
-<title>Razorpay Payment Gateway Integration in PHP</title>
-<div class="container">
-	<div class="row">
-	<h2>Example: Razorpay Payment Gateway Integration in PHP</h2>
-	<br><br><br>
-<?php
-require('config.php');
-require('razorpay-php/razorpay-php/Razorpay.php');
-session_start();
-use Razorpay\Api\Api;
-$api = new Api($keyId, $keySecret);
-$orderData = [
-    'receipt'         => 3456,
-    'amount'          => 1000 * 100,
-    'currency'        => "INR",
-    'payment_capture' => 1
-];
-$razorpayOrder = $api->order->create($orderData);
-$razorpayOrderId = $razorpayOrder['id'];
-$_SESSION['razorpay_order_id'] = $razorpayOrderId;
-$displayAmount = $amount = $orderData['amount'];
-if ($displayCurrency !== 'INR') {
-    $url = "https://api.fixer.io/latest?symbols=$displayCurrency&base=INR";
-    $exchange = json_decode(file_get_contents($url), true);
+<html>
 
-    $displayAmount = $exchange['rates']['INR'] * 1000/ 100;
-}
-$data = [
-    "key"               => $keyId,
-    "amount"            => 1000,
-    "name"              => "rajesh",
-    "description"       => "unwaste",
-    "image"             => "",
-    "prefill"           => [
-    "name"              => "sathis",
-    "email"             => "sathis@gamil.com",
-    "contact"           => "9791823103",
-    ],
-    "notes"             => [
-    "address"           => "tindivanam",
-    "merchant_order_id" => "12312321",
-    ],
-    "theme"             => [
-    "color"             => "#F37254"
-    ],
-    "order_id"          => $razorpayOrderId,
-];
+<body>
 
-if ($displayCurrency !== 'INR')
-{
-    $data['display_currency']  = $displayCurrency;
-    $data['display_amount']    = $displayAmount;
-}
+    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+        Name: <input type="text" name="fname">
+        <input type="submit">
+    </form>
 
-$json = json_encode($data);
+    <?php
+    function debug_to_console($data)
+    {
+        $output = $data;
+        if (is_array($output))
+            $output = implode(',', $output);
+        echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+    }
 
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        debug_to_console("test");
+        // collect value of input field
+        $name = $_POST['fname'];
+        if (empty($name)) {
+            echo "Name is empty";
+        } else {
+            echo $name;
+        }
+    }
+    ?>
 
-require("checkout/manual.php");
-?>
-</div>
-<?php include('include/footer.php');?>
-Footer
-© 2023 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-razorpay-integration-PHP/pay.php at main · Hrithik1122/razorpay-integration-PHP
+</body>
+
+</html>
