@@ -657,6 +657,7 @@
 <!-- template js -->
 <script src="assets/js/wostin.js"></script>
 
+
 </body>
 <script>
 
@@ -744,8 +745,9 @@
         }
         let encoded = window.btoa(JSON.stringify(model));
         localStorage.setItem('3eab60ec988c461f0cfc0e6ed6ed', encoded);
-        window.location.href = "new_user.php?firstname=" + model.firstname + "&email=" + model.emailAddress + "&orderid=" + model.orderid + "&address=" + model.address + "&amount=" + model.amount;
-
+        if (model.emailAddress != "") {
+            window.location.href = "new_user.php?firstname=" + model.firstname + "&email=" + model.emailAddress + "&orderid=" + model.orderid + "&address=" + model.address + "&amount=" + model.amount;
+        } else { alert("please provider Your Details!"); }
         // $.ajax({
         //     url:"http://localhost:7071/api/Customer/Add",
         //     type:"POST",
