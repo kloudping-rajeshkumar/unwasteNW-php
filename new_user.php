@@ -2,15 +2,84 @@
 
 <?php
 require('config.php');
-require('razorpay-php/razorpay-php/Razorpay.php');
+require('razorpay-php/Razorpay.php');
 session_start();
 use Razorpay\Api\Api;
+$expiryTime = time() + (60 * 60 * 24);
+$orderId = substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 10);
+if ($_POST["servicetype"] == "Individual"){
+    $amount = $_POST["total_amount"];
+    $fname = $_POST["firstname"];
+    $lname = $_POST["lname"];
+    $email = $_POST["email"];
+    $myCheck1 = $_POST["myCheck1"];
+    $myCheck = $_POST["myCheck"];
+    $address = $_POST["address"];
+    $pincode = $_POST["pincode"];
+
+    setcookie("amount", $amount, $expiryTime);
+    setcookie("fname", $fname, $expiryTime);
+    setcookie("lname", $lname, $expiryTime);
+    setcookie("email", $email, $expiryTime);
+    setcookie("myCheck1", $myCheck1, $expiryTime);
+    setcookie("myCheck", $myCheck, $expiryTime);
+    setcookie("address", $address, $expiryTime);
+    setcookie("pincode", $pincode, $expiryTime);
+    setcookie("orderId", $orderId, $expiryTime);
+}
+elseif($_POST["servicetype"] == "Appartments"){
+    $amount = $_POST["total_amount"];
+    $fname = $_POST["fname"];
+    $cname = $_POST["cname"];
+    $dname = $_POST["dname"];
+    $email = $_POST["email"];
+    $number = $_POST["number"];
+    $myCheck1 = $_POST["myCheck1"];
+    $myCheck = $_POST["myCheck"];
+    $address = $_POST["address"];
+    $pincode = $_POST["pincode"];
+
+    setcookie("amount", $amount, $expiryTime);
+    setcookie("fname", $fname, $expiryTime);
+    setcookie("cname", $cname, $expiryTime);
+    setcookie("dname", $dname, $expiryTime);
+    setcookie("email", $email, $expiryTime);
+    setcookie("number", $number, $expiryTime);
+    setcookie("myCheck1", $myCheck1, $expiryTime);
+    setcookie("myCheck", $myCheck, $expiryTime);
+    setcookie("address", $address, $expiryTime);
+    setcookie("pincode", $pincode, $expiryTime);
+    setcookie("orderId", $orderId, $expiryTime);
+}
+elseif($_POST["servicetype"] == "Commercial"){
+    $amount = $_POST["total_amount"];
+    $fname = $_POST["fname"];
+    $cname = $_POST["cname"];
+    $dname = $_POST["dname"];
+    $email = $_POST["email"];
+    $myCheck1 = $_POST["myCheck1"];
+    $myCheck = $_POST["myCheck"];
+    $address = $_POST["address"];
+    $pincode = $_POST["pincode"];
+
+    setcookie("amount", $amount, $expiryTime);
+    setcookie("fname", $fname, $expiryTime);
+    setcookie("cname", $cname, $expiryTime);
+    setcookie("dname", $dname, $expiryTime);
+    setcookie("email", $email, $expiryTime);
+    setcookie("myCheck1", $myCheck1, $expiryTime);
+    setcookie("myCheck", $myCheck, $expiryTime);
+    setcookie("address", $address, $expiryTime);
+    setcookie("pincode", $pincode, $expiryTime);
+    setcookie("orderId", $orderId, $expiryTime);
+}
+
 
 $api = new Api($keyId, $keySecret);
 
 $orderData = [
     'receipt' => 3456,
-    'amount' => intval($_GET["amount"]),
+    'amount' => $amount*100,
     'currency' => "INR",
     'payment_capture' => 1
 
@@ -27,6 +96,8 @@ if ($displayCurrency !== 'INR') {
     $displayAmount = $exchange['rates'][$displayCurrency] * $amount / 100;
 }
 
+
+
 $data = [
     "key" => $keyId,
     "amount" => $amount,
@@ -34,13 +105,13 @@ $data = [
     "description" => "UnwasteNetwork",
     "image" => "https://yellowbucket.in/unwastenetwork/assets/images/resources/why-choose-two-founder-img.jpg",
     "prefill" => [
-        "name" => $_GET["firstname"],
-        "email" => $_GET["email"],
+        "name" => $fname,
+        "email" => $email,
         "contact" => "",
     ],
     "notes" => [
-        "address" => $_GET["address"],
-        "merchant_order_id" => $_GET["orderid"],
+        "address" => $address,
+        "merchant_order_id" => $orderId,
     ],
     "theme" => [
         "color" => "#3399cc"

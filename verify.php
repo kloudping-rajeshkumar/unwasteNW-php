@@ -43,7 +43,7 @@
 
     session_start();
 
-    require('razorpay-php/razorpay-php/Razorpay.php');
+    require('razorpay-php/Razorpay.php');
     use Razorpay\Api\Api;
     use Razorpay\Api\Errors\SignatureVerificationError;
 
@@ -71,7 +71,7 @@
             $error = 'Razorpay Error : ' . $e->getMessage();
         }
     }
-
+    $date = date('Y-m-d');
     if ($success === true) {
 
         // if ($result === FALSE) { /* Handle error */
@@ -109,8 +109,8 @@
                      #dbdfea;padding: 11px 0;">
                         <p class="tm_invoice_number tm_m0" style="margin-top: 0;
             line-height: 1.5em;
-            margin-bottom: 15px;margin: 0px;">Invoice No: <b class="tm_primary_color" style="font-weight: bold;color: #111;">#<span id="orderid"></span></b></p>
-                        <p class="tm_invoice_date tm_m0" style="margin-top: 0;line-height: 1.5em;margin-bottom: 15px;margin: 0px;">Date: <b class="tm_primary_color" style="font-weight: bold;color: #111;"><span id="date"></span></b></p>
+            margin-bottom: 15px;margin: 0px;">Invoice No: <b class="tm_primary_color" style="font-weight: bold;color: #111;">' . $_COOKIE['orderId'] . '</b></p>
+                        <p class="tm_invoice_date tm_m0" style="margin-top: 0;line-height: 1.5em;margin-bottom: 15px;margin: 0px;">Date: <b class="tm_primary_color" style="font-weight: bold;color: #111;">' . $date . '</b></p>
                     </div>
                     <div class="tm_invoice_head tm_mb10" style="margin-top: 0;line-height: 1.5em;margin-bottom: 10px;display: flex;
           justify-content: space-between;">
@@ -121,8 +121,8 @@
                             </p>
                             <p style="margin-top: 0;line-height: 1.5em;margin-bottom: 15px;">
 
-                                <span id="address"></span><br />
-                              <span id="emailAddress"></span><br />
+                            ' . $_COOKIE['address'] . '<br />
+                            ' . $_COOKIE['email'] . '<br />
                             </p>
                         </div>
                         <div class="tm_invoice_right tm_text_right" style="margin-top: 0;line-height: 1.5em;text-align: right; width: 60%;">
@@ -161,15 +161,15 @@
                                         <tr>
                                             <td class="tm_width_7" style="border-top: 1px solid #dbdfea;padding: 10px 15px;
                   line-height: 1.55em;width: 58.33333333%;">
-                                                <span id="servicetype"></span>
+                  ' . $_COOKIE['myCheck'] . ' ' . $_COOKIE['myCheck1'] . '
                                             </td>
                                             <td class="tm_width_2" style="border-top: 1px solid #dbdfea;padding: 10px 10px;
                 line-height: 1.55em;width: 16.66666667%;">
-                                                <span id="amount"></span>
+                ' . $_COOKIE['amount'] . '
                                             </td>
                                             <td class="tm_width_2 " style="border-top: 1px solid #dbdfea;padding: 10px 15px;
                   line-height: 1.55em;width: 16.66666667%; text-align: right;">
-                                                 <span id="total"></span>
+                  ' . $_COOKIE['amount'] . '
                                             </td>
                                         </tr>
                                         <tr>
@@ -223,7 +223,7 @@
                                 </p>
                                 <p class="tm_m0" style="margin-top: 0;line-height: 1.5em;margin-bottom: 15px;margin: 0px;">
                                    Transaction ID -
-                                     <span>   ' . $pid . '</span> <br />Amount:  <span id="price"></span>
+                                     <span>   ' . $pid . '</span> <br />Amount:  ' . $_COOKIE['amount'] . '
                                 </p>
                             </div>
                             <div class="tm_right_footer" style="margin-top: 0;line-height: 1.5em;width: 42%;">
@@ -236,7 +236,7 @@
                                             </td>
                                             <td class="tm_width_3 tm_primary_color tm_text_right tm_border_none tm_bold" style="border-top: 1px solid #dbdfea;padding:
                        10px 15px;line-height: 1.55em;font-weight: 700;width: 25%;color: #111;text-align: right;border: none !important;">
-                                                 <span id="subtotal"></span>
+                       ' . $_COOKIE['amount'] . '
                                             </td>
                                         </tr>
                                         <tr>
@@ -254,11 +254,11 @@
                                             <td class="tm_width_3 tm_primary_color tm_border_none tm_pt0" style="border-top: 1px solid #dbdfea;padding: 10px 15px;
                       line-height: 1.55em ;padding-top : 0 ;width: 25%;color: #111;border: none !important;">
                                                 Tax <span class="tm_ternary_color"
-                                                          style="color: #b5b5b5;">(5%)</span>
+                                                          style="color: #b5b5b5;">(18%)</span>
                                             </td>
                                             <td class="tm_width_3 tm_primary_color tm_text_right tm_border_none tm_pt0" style="border-top: 1px solid #dbdfea;padding:
                     10px 15px;line-height: 1.55em;padding-top: 0;width: 25%;color: #111;text-align: right;border: none !important;">
-                                             <span id = "tax"></span>
+                    ' . (intval($_COOKIE['amount'])/118)*18 . '
                                             </td>
                                         </tr>
                                         <tr class="tm_border_top tm_border_bottom" style="border-bottom: 1px solid #dbdfea;border-top: 1px solid #dbdfea;">
@@ -270,7 +270,7 @@
                                             <td class="tm_width_3 tm_border_top_0 tm_bold tm_f16 tm_primary_color tm_text_right" style="border-top: 0;padding: 10px
                        15px;line-height: 1.55em;font-size: 16px;font-weight: 700;width: 25%;
                        color: #111;text-align: right;">
-                                                 <span id = "grandtotal"></span>
+                       ' . $_COOKIE['amount'] . '
                                             </td>
                                         </tr>
                                     </tbody>

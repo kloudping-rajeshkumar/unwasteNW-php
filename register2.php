@@ -67,7 +67,7 @@
 
                         <div class="request-a-pickup__tab-content">
                             <div class="request-a-pickup__tab-content-form-box">
-                                <form class="request-a-pickup__tab-content-form">
+                                <form class="request-a-pickup__tab-content-form" method="post" action="new_user.php">
                                     <div class="row">
                                         <p class="request-a-pickup__tab-content-text-box" style="padding-bottom:10px;">
                                             New Users can fill in the form and register for the service.</p>
@@ -95,8 +95,7 @@
                                                     <div class="col-xl-12">
                                                         <div class="request-a-pickup__tab-content-input-box">
                                                             <input id="mobileNumber_single" type="text"
-                                                                placeholder="Secondary Phone No*" maxlength="10"
-                                                                name="number" required>
+                                                                placeholder="Secondary Phone No*" maxlength="10" minlength="10" name="number" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-12">
@@ -109,16 +108,16 @@
                                                                 <li>
                                                                     <input type="checkbox" name="myCheck" value="wet"
                                                                         id="option_5" class=checked
-                                                                        onClick="myFunction()">
+                                                                        ">
                                                                     <label for="option_5"><span></span>Wet</label>
                                                                 </li>
                                                                 <li>
-                                                                    <input type="checkbox" name="myCheck" value="dry"
+                                                                    <input type="checkbox" name="myCheck1" value="dry"
                                                                         id="option_6" class=checked
-                                                                        onClick="myFunction()">
+                                                                        " >
                                                                     <label for="option_6"><span></span>Dry</label>
                                                                 </li>
-                                                                <div id="demo"></div>
+                                                                <!-- <div id="demo"></div> -->
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -139,13 +138,13 @@
 
                                                     <div class="col-xl-12">
                                                         <div class="request-a-pickup__tab-content-input-box">
-                                                            <input id="postCode_single" type="text"
+                                                            <input id="postCode_single" type="text" maxlength="6" minlength="6"
                                                                 placeholder="Post Code*" name="pincode" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-12">
                                                         <div class="request-a-pickup__tab-content-input-box">
-                                                            <p id="amount_single"></p>
+                                                            <!-- <p id="amount_single"></p> -->
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-12"
@@ -170,6 +169,11 @@
                                                                     declare all the details are valid, and wish to
                                                                     proceed.</label>
                                                             </li>
+                                                            <li style="text-align: right;">
+                                                                <label id="check2" for="extra_weight_2" style="font-size: 28px;color: #0076a1;font-weight: bold;"><span></span>Total : ₹118/-<br><span style="font-weight: 600;font-size: 14px;color: #7c7c7c;">Inclusive of 18% GST</span></label>
+                                                            </li>
+                                                            <input type="hidden" id="total_amount2" name="total_amount" value="0">
+                                                            <input type="hidden" name="servicetype" value="Individual">
                                                         </ul>
                                                     </div>
                                                     <div class="col-xl-12">
@@ -196,7 +200,7 @@
 
                         <div class="request-a-pickup__tab-content">
                             <div class="request-a-pickup__tab-content-form-box">
-                                <form class="request-a-pickup__tab-content-form">
+                                <form class="request-a-pickup__tab-content-form" method="post" action="new_user.php">
                                     <div class="row">
                                         <p class="request-a-pickup__tab-content-text-box" style="padding-bottom:10px;">
                                             New Users can fill in the form and register for the service.</p>
@@ -245,16 +249,16 @@
                                                                 <li>
                                                                     <input type="checkbox" name="myCheck" value="wet"
                                                                         id="option_7" class=checked
-                                                                        onClick="myFunction()">
+                                                                        ">
                                                                     <label for="option_7"><span></span>Wet</label>
                                                                 </li>
                                                                 <li>
-                                                                    <input type="checkbox" name="myCheck" value="dry"
+                                                                    <input type="checkbox" name="myCheck1" value="dry"
                                                                         id="option_8" class=checked
-                                                                        onClick="myFunction()">
+                                                                        ">
                                                                     <label for="option_8"><span></span>Dry</label>
                                                                 </li>
-                                                                <div id="demo"></div>
+                                                                <!-- <div id="demo"></div> -->
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -276,12 +280,12 @@
                                                     <div class="col-xl-12">
                                                         <div class="request-a-pickup__tab-content-input-box">
                                                             <input id="postCode_appartment" type="text"
-                                                                placeholder="Post Code*" name="pincode" required>
+                                                                placeholder="Post Code*" name="pincode" maxlenght="6" minlenght="6" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-12">
                                                         <div class="request-a-pickup__tab-content-input-box">
-                                                            <p id="amount_appartments"></p>
+                                                            <!-- <p id="amount_appartments"></p> -->
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-12"
@@ -306,13 +310,18 @@
                                                                     declare all the details are valid, and wish to
                                                                     proceed.</label>
                                                             </li>
+                                                            <li style="text-align: right;">
+                                                                <label id="check1" for="extra_weight_2" style="font-size: 28px;color: #0076a1;font-weight: bold;"><span></span>Total : ₹118/-<br><span style="font-weight: 600;font-size: 14px;color: #7c7c7c;">Inclusive of 18% GST</span></label>
+                                                            </li>
+                                                            <input type="hidden" id="total_amount1" name="total_amount" value="0">
+                                                            <input type="hidden" name="servicetype" value="Appartments">
                                                         </ul>
                                                     </div>
                                                     <div class="col-xl-12">
 
                                                         <div class="request-a-pickup__tab-content-btn-box"
                                                             style="text-align:right;">
-                                                            <button type="button"
+                                                            <button type="submit"
                                                                 class="thm-btn request-a-pickup__tab-content-btn"
                                                                 onclick="Postdata()">Proceed ></button>
                                                         </div>
@@ -332,7 +341,7 @@
 
                         <div class="request-a-pickup__tab-content">
                             <div class="request-a-pickup__tab-content-form-box">
-                                <form class="request-a-pickup__tab-content-form">
+                                <form class="request-a-pickup__tab-content-form" method="post" action="new_user.php">
                                     <div class="row">
                                         <p class="request-a-pickup__tab-content-text-box" style="padding-bottom:10px;">
                                             New Users can fill in the form and register for the service.</p>
@@ -372,18 +381,16 @@
                                                                 class="list-unstyled request-a-pickup__tab-content-size-list">
 
                                                                 <li>
-                                                                    <input type="checkbox" name="myCheck" value="wet"
-                                                                        id="option_9" class="checked"
-                                                                        onClick="myFunction()">
-                                                                    <label for="option_9"><span></span>Wet</label>
+                                                                    <input type="checkbox" id="option_9" name="myCheck" value="Organic">
+                                                                    <label for="option_9"><span></span>Organic</label>
+                                                                    <p style="font-size: 12px;line-height: 14px;">Organic per bin <b style="color: #0076a1;">Rs.100/- + 18% GST</b> (60 liter Green bin)</p>
                                                                 </li>
                                                                 <li>
-                                                                    <input type="checkbox" name="myCheck" value="dry"
-                                                                        id="option_10" onClick="myFunction()">
+                                                                    <input type="checkbox" id="option_10" name="myCheck1" value="Dry">
                                                                     <label for="option_10"><span></span>Dry</label>
-
+                                                                    <p style="font-size: 12px;line-height: 14px;">Dry per bag <b style="color: #0076a1;">Rs.50/- + 18% GST</b> (100 liter White/Blue bag)</p>
                                                                 </li>
-                                                                <div id="demo"></div>
+                                                                <!-- <div id="demo"></div> -->
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -405,12 +412,12 @@
                                                     <div class="col-xl-12">
                                                         <div class="request-a-pickup__tab-content-input-box">
                                                             <input id="postCode_commercial" type="text"
-                                                                placeholder="Post Code*" name="pincode" required>
+                                                                placeholder="Post Code*" name="pincode" maxlenght="6" minlenght="6" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-12">
                                                         <div class="request-a-pickup__tab-content-input-box">
-                                                            <p id="amount_commercial"></p>
+                                                            <!-- <p id="amount_commercial"></p> -->
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-12"
@@ -435,26 +442,29 @@
                                                                     declare all the details are valid, and wish to
                                                                     proceed.</label>
                                                             </li>
+                                                            <li style="text-align: right;">
+                                                                <label id="total_label" for="extra_weight_2" style="font-size: 28px;color: #0076a1;font-weight: bold;"><span></span>Total : ₹0/-<br><span style="font-weight: 600;font-size: 14px;color: #7c7c7c;">Inclusive of 18% GST</span></label>
+                                                            </li>
+                                                            <input type="hidden" id="total_amount" name="total_amount" value="0">
+                                                            <input type="hidden" name="servicetype" value="Commercial">
                                                         </ul>
                                                     </div>
                                                     <div class="col-xl-12">
 
                                                         <div class="request-a-pickup__tab-content-btn-box"
                                                             style="text-align:right;">
-                                                            <button type="button"
+                                                            <button type="submit"
                                                                 class="thm-btn request-a-pickup__tab-content-btn"
                                                                 onclick="Postdata()">Proceed ></button>
                                                         </div>
                                                     </div>
                                                 </div>
-
                                             </div>
                                         </div>
                                     </div>
                                 </form>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -661,18 +671,20 @@
 </body>
 <script>
 
-    function myFunction() {
+    
 
-        var checkboxes = document.querySelectorAll('input[name="myCheck"]:checked'),
-            values = [],
-            len = checkboxes.length, i;
+    // function myFunction() {
 
-        for (i = 0; i < len; i++) {
-            values.push(checkboxes[i].value);
-        }
+    //     var checkboxes = document.querySelectorAll('input[name="myCheck"]:checked'),
+    //         values = [],
+    //         len = checkboxes.length, i;
 
-        document.getElementById("demo").innerHTML = values.join(',');
-    }
+    //     for (i = 0; i < len; i++) {
+    //         values.push(checkboxes[i].value);
+    //     }
+
+    //     document.getElementById("demo").innerHTML = values.join(',');
+    // }
 </script>
 <script>
     debugger;
@@ -688,12 +700,13 @@
 
     });
     function Postdata() {
-        debugger;
+        // debugger;
+        // alert("hi")
 
         var model = null;
 
         if ($("#servicetype .active-btn").attr("data-type") == "Single") {
-            debugger;
+            // debugger;
             model = {
                 firstname: document.getElementById('firstname_single').value,
                 lastname: document.getElementById('lastname_single').value,
@@ -701,15 +714,16 @@
                 emailAddress: document.getElementById('emailAddress_single').value,
                 servicetype: $("#servicetype .active-btn").attr("data-type"),
                 orderid: Math.random().toString().slice(2, 11),
-                amount: document.getElementById('amount_single').innerHTML = 50000,
-                wastetype: document.getElementById('demo').innerHTML,
+                // amount: totalvas,
+                // wastetype: document.getElementById('demo').innerHTML,
                 address: document.getElementById('address_single').value,
                 postCode: document.getElementById('postCode_single').value
 
             };
+            
         }
         else if ($("#servicetype .active-btn").attr("data-type") == "Appartment") {
-            debugger;
+            // debugger;
             model = {
                 firstname: document.getElementById('fullname_appartment').value,
                 name: document.getElementById('name_appartment').value,
@@ -719,15 +733,15 @@
                 emailAddress: document.getElementById('emailAddress_appartment').value,
                 servicetype: $("#servicetype .active-btn").attr("data-type"),
                 orderid: Math.random().toString().slice(2, 11),
-                amount: document.getElementById('amount_appartments').innerHTML = 50000,
-                wastetype: document.getElementById('demo').innerHTML,
+                // amount: totalvas,
+                // wastetype: document.getElementById('demo').innerHTML,
                 address: document.getElementById('address_appartment').value,
                 postCode: document.getElementById('postCode_appartment').value
 
             };
         }
         else {
-            debugger;
+            // debugger;
             model = {
                 firstname: document.getElementById('fullname_commercial').value,
                 name: document.getElementById('name_commercial').value,
@@ -736,18 +750,23 @@
                 emailAddress: document.getElementById('emailAddress_commercial').value,
                 servicetype: $("#servicetype .active-btn").attr("data-type"),
                 orderid: Math.random().toString().slice(2, 11),
-                amount: document.getElementById('amount_commercial').innerHTML = 50000,
-                wastetype: document.getElementById('demo').innerHTML,
+                // amount: totalvas,
+                // wastetype: document.getElementById('demo').innerHTML,
                 address: document.getElementById('address_commercial').value,
                 postCode: document.getElementById('postCode_commercial').value
 
             };
         }
+
         let encoded = window.btoa(JSON.stringify(model));
         localStorage.setItem('3eab60ec988c461f0cfc0e6ed6ed', encoded);
 
-        window.location.href = "new_user.php?firstname=" + model.firstname + "&email=" + model.emailAddress + "&orderid=" + model.orderid + "&address=" + model.address + "&amount=" + model.amount;
-        return false;
+        
+        // ... (other properties)
+
+
+        // window.location.href = "new_user.php?firstname=" + model.firstname + "&email=" + model.emailAddress + "&orderid=" + model.orderid + "&address=" + model.address + "&amount=" + model.amount;
+        // return false;
         // $.ajax({
         //     url:"http://localhost:7071/api/Customer/Add",
         //     type:"POST",
@@ -764,6 +783,105 @@
         //     });
 
     }
+</script>
+
+<script>
+    const organicCheckbox = document.getElementById("option_9");
+    const dryCheckbox = document.getElementById("option_10");
+    const totalAmountInput = document.getElementById("total_amount");
+    const totalLabel = document.getElementById("total_label");
+    const organicCheckbox1 = document.getElementById("option_7");
+    const dryCheckbox1 = document.getElementById("option_8");
+    const totalLabel1 = document.getElementById("check1");
+    const totalAmountInput1 = document.getElementById("total_amount1");
+    const organicCheckbox2 = document.getElementById("option_5");
+    const dryCheckbox2 = document.getElementById("option_6");
+    const totalLabel2 = document.getElementById("check2");
+    const totalAmountInput2 = document.getElementById("total_amount2");
+
+    const organicPrice = 100; // Update with actual price
+    const dryPrice = 50; // Update with actual price
+    const gstRate = 0.18;
+    const organicPrice1 = 50; // Update with actual price
+    const dryPrice1 = 50; // Update with actual price
+    const gstRate1 = 0.18;
+    const organicPrice2 = 50; // Update with actual price
+    const dryPrice2 = 50; // Update with actual price
+    const gstRate2 = 0.18;
+
+    organicCheckbox.addEventListener("change", updateTotal);
+    dryCheckbox.addEventListener("change", updateTotal);
+    organicCheckbox1.addEventListener("change", updateTotal1);
+    dryCheckbox1.addEventListener("change", updateTotal1);
+    organicCheckbox2.addEventListener("change", updateTotal2);
+    dryCheckbox2.addEventListener("change", updateTotal2);
+    // var totalvas;
+    // console.log(totalvas);
+    function updateTotal() {
+        let total = 0;
+
+        if (organicCheckbox.checked) {
+            total += organicPrice + organicPrice * gstRate;
+        }
+
+        if (dryCheckbox.checked) {
+            total += dryPrice + dryPrice * gstRate;
+        }
+        totalAmountInput.value = total.toFixed(2);
+        // var totalva = total.toFixed(2);
+        // totalvas = totalva ;
+        // console.log(totalvas);
+
+        totalLabel.innerHTML = `<span></span>Total : ₹${total.toFixed(2)}/-<br><span style="font-weight: 600;font-size: 14px;color: #7c7c7c;">Inclusive of 18% GST</span>`;
+    }
+    function updateTotal1() {
+        let total = 0;
+
+        if (organicCheckbox1.checked) {
+            total += organicPrice1 + organicPrice1 * gstRate1;
+        }
+
+        if (dryCheckbox1.checked) {
+            total += dryPrice1 + dryPrice1 * gstRate1;
+        }
+        totalAmountInput1.value = total.toFixed(2);
+        // var totalva = total.toFixed(2);
+        // totalvas = totalva ;
+        // console.log(totalvas);
+        
+
+        totalLabel1.innerHTML = `<span></span>Total : ₹${total.toFixed(2)}/-<br><span style="font-weight: 600;font-size: 14px;color: #7c7c7c;">Inclusive of 18% GST</span>`;
+    }
+    function updateTotal2() {
+        let total = 0;
+
+        if (organicCheckbox2.checked) {
+            total += organicPrice2 + organicPrice2 * gstRate2;
+        }
+
+        if (dryCheckbox2.checked) {
+            total += dryPrice2 + dryPrice2 * gstRate2;
+        }
+        // var totalva = total.toFixed(2);
+        // totalvas = totalva ;
+        // console.log(totalvas);
+        totalAmountInput2.value = total.toFixed(2);
+
+        totalLabel2.innerHTML = `<span></span>Total : ₹${total.toFixed(2)}/-<br><span style="font-weight: 600;font-size: 14px;color: #7c7c7c;">Inclusive of 18% GST</span>`;
+    }
+
+//     // Retrieve the encoded data from local storage
+// var encodedData = localStorage.getItem('3eab60ec988c461f0cfc0e6ed6ed');
+
+// // Decode the base64 encoded data
+// var decodedData = window.atob(encodedData);
+
+// // Convert the decoded JSON string back to an object
+// var storedModel = JSON.parse(decodedData);
+
+// // Now you can access the properties as needed
+// // console.log(storedModel.amount);
+// console.log(storedModel.orderid);
 </script>
 
 </html>
