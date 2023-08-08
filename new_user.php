@@ -5,76 +5,22 @@ require('config.php');
 require('razorpay-php/Razorpay.php');
 session_start();
 use Razorpay\Api\Api;
-$expiryTime = time() + (60 * 60 * 24);
-$orderId = substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 10);
-if ($_POST["servicetype"] == "Individual"){
-    $amount = $_POST["total_amount"];
-    $fname = $_POST["firstname"];
-    $lname = $_POST["lname"];
-    $email = $_POST["email"];
-    $myCheck1 = $_POST["myCheck1"];
-    $myCheck = $_POST["myCheck"];
-    $address = $_POST["address"];
-    $pincode = $_POST["pincode"];
 
-    setcookie("amount", $amount, $expiryTime);
-    setcookie("fname", $fname, $expiryTime);
-    setcookie("lname", $lname, $expiryTime);
-    setcookie("email", $email, $expiryTime);
-    setcookie("myCheck1", $myCheck1, $expiryTime);
-    setcookie("myCheck", $myCheck, $expiryTime);
-    setcookie("address", $address, $expiryTime);
-    setcookie("pincode", $pincode, $expiryTime);
-    setcookie("orderId", $orderId, $expiryTime);
-}
-elseif($_POST["servicetype"] == "Appartments"){
-    $amount = $_POST["total_amount"];
-    $fname = $_POST["fname"];
-    $cname = $_POST["cname"];
-    $dname = $_POST["dname"];
-    $email = $_POST["email"];
-    $number = $_POST["number"];
-    $myCheck1 = $_POST["myCheck1"];
-    $myCheck = $_POST["myCheck"];
-    $address = $_POST["address"];
-    $pincode = $_POST["pincode"];
-
-    setcookie("amount", $amount, $expiryTime);
-    setcookie("fname", $fname, $expiryTime);
-    setcookie("cname", $cname, $expiryTime);
-    setcookie("dname", $dname, $expiryTime);
-    setcookie("email", $email, $expiryTime);
-    setcookie("number", $number, $expiryTime);
-    setcookie("myCheck1", $myCheck1, $expiryTime);
-    setcookie("myCheck", $myCheck, $expiryTime);
-    setcookie("address", $address, $expiryTime);
-    setcookie("pincode", $pincode, $expiryTime);
-    setcookie("orderId", $orderId, $expiryTime);
-}
-elseif($_POST["servicetype"] == "Commercial"){
-    $amount = $_POST["total_amount"];
-    $fname = $_POST["fname"];
-    $cname = $_POST["cname"];
-    $dname = $_POST["dname"];
-    $email = $_POST["email"];
-    $myCheck1 = $_POST["myCheck1"];
-    $myCheck = $_POST["myCheck"];
-    $address = $_POST["address"];
-    $pincode = $_POST["pincode"];
-
-    setcookie("amount", $amount, $expiryTime);
-    setcookie("fname", $fname, $expiryTime);
-    setcookie("cname", $cname, $expiryTime);
-    setcookie("dname", $dname, $expiryTime);
-    setcookie("email", $email, $expiryTime);
-    setcookie("myCheck1", $myCheck1, $expiryTime);
-    setcookie("myCheck", $myCheck, $expiryTime);
-    setcookie("address", $address, $expiryTime);
-    setcookie("pincode", $pincode, $expiryTime);
-    setcookie("orderId", $orderId, $expiryTime);
-}
-
-
+$amount = $_COOKIE['amount'];
+$fname = $_COOKIE['fname'];
+$email = $_COOKIE['email'];
+$orderId = $_COOKIE['orderId'];
+$address = $_COOKIE['address'];
+?>
+<script>
+//     var loc = localStorage.getItem('3eab60ec988c461f0cfc0e6ed6ed');
+// var cache = JSON.parse(atob(loc));
+// var phonenum = cache.mobileNumber;
+//     console.log(cache.mobileNumber);
+//     console.log(phonenum);
+</script>
+<?php
+$mobile = $_COOKIE['mobile'];
 $api = new Api($keyId, $keySecret);
 
 $orderData = [
@@ -107,7 +53,7 @@ $data = [
     "prefill" => [
         "name" => $fname,
         "email" => $email,
-        "contact" => "",
+        "contact" => $mobile,
     ],
     "notes" => [
         "address" => $address,

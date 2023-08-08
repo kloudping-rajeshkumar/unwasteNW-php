@@ -67,7 +67,7 @@
 
                         <div class="request-a-pickup__tab-content">
                             <div class="request-a-pickup__tab-content-form-box">
-                                <form class="request-a-pickup__tab-content-form" method="post" action="new_user.php">
+                                <form class="request-a-pickup__tab-content-form" method="post" action="register4.php">
                                     <div class="row">
                                         <p class="request-a-pickup__tab-content-text-box" style="padding-bottom:10px;">
                                             New Users can fill in the form and register for the service.</p>
@@ -170,7 +170,7 @@
                                                                     proceed.</label>
                                                             </li>
                                                             <li style="text-align: right;">
-                                                                <label id="check2" for="extra_weight_2" style="font-size: 28px;color: #0076a1;font-weight: bold;"><span></span>Total : ₹118/-<br><span style="font-weight: 600;font-size: 14px;color: #7c7c7c;">Inclusive of 18% GST</span></label>
+                                                                <label id="check2" for="extra_weight_2" style="font-size: 28px;color: #0076a1;font-weight: bold;"><span></span>Total : ₹0/-<br><span style="font-weight: 600;font-size: 14px;color: #7c7c7c;">Inclusive of 18% GST</span></label>
                                                             </li>
                                                             <input type="hidden" id="total_amount2" name="total_amount" value="0">
                                                             <input type="hidden" name="servicetype" value="Individual">
@@ -200,7 +200,7 @@
 
                         <div class="request-a-pickup__tab-content">
                             <div class="request-a-pickup__tab-content-form-box">
-                                <form class="request-a-pickup__tab-content-form" method="post" action="new_user.php">
+                                <form class="request-a-pickup__tab-content-form" method="post" action="register4.php">
                                     <div class="row">
                                         <p class="request-a-pickup__tab-content-text-box" style="padding-bottom:10px;">
                                             New Users can fill in the form and register for the service.</p>
@@ -280,7 +280,7 @@
                                                     <div class="col-xl-12">
                                                         <div class="request-a-pickup__tab-content-input-box">
                                                             <input id="postCode_appartment" type="text"
-                                                                placeholder="Post Code*" name="pincode" maxlenght="6" minlenght="6" required>
+                                                                placeholder="Post Code*" name="pincode" maxlength="6" minlength="6" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-12">
@@ -311,7 +311,7 @@
                                                                     proceed.</label>
                                                             </li>
                                                             <li style="text-align: right;">
-                                                                <label id="check1" for="extra_weight_2" style="font-size: 28px;color: #0076a1;font-weight: bold;"><span></span>Total : ₹118/-<br><span style="font-weight: 600;font-size: 14px;color: #7c7c7c;">Inclusive of 18% GST</span></label>
+                                                                <label id="check1" for="extra_weight_2" style="font-size: 28px;color: #0076a1;font-weight: bold;"><span></span>Total : ₹0/-<br><span style="font-weight: 600;font-size: 14px;color: #7c7c7c;">Inclusive of 18% GST</span></label>
                                                             </li>
                                                             <input type="hidden" id="total_amount1" name="total_amount" value="0">
                                                             <input type="hidden" name="servicetype" value="Appartments">
@@ -341,7 +341,7 @@
 
                         <div class="request-a-pickup__tab-content">
                             <div class="request-a-pickup__tab-content-form-box">
-                                <form class="request-a-pickup__tab-content-form" method="post" action="new_user.php">
+                                <form class="request-a-pickup__tab-content-form" method="post" action="register4.php">
                                     <div class="row">
                                         <p class="request-a-pickup__tab-content-text-box" style="padding-bottom:10px;">
                                             New Users can fill in the form and register for the service.</p>
@@ -412,7 +412,7 @@
                                                     <div class="col-xl-12">
                                                         <div class="request-a-pickup__tab-content-input-box">
                                                             <input id="postCode_commercial" type="text"
-                                                                placeholder="Post Code*" name="pincode" maxlenght="6" minlenght="6" required>
+                                                                placeholder="Post Code*" name="pincode" maxlength="6" minlength="6" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-12">
@@ -690,15 +690,29 @@
     debugger;
     var loc = localStorage.getItem('3eab60ec988c461f0cfc0e6ed6ed');
     var cache = JSON.parse(atob(loc));
-    $(document).ready(function () {
+    var phonenum = cache.phone;
 
+    // Function to set a cookie
+    function setCookie(name, value, days) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + value + expires + "; path=/";
+    }
+
+    // Set a cookie named "mobile" with the value of 'phonenum' that expires in 1 day
+    setCookie("mobile", phonenum, 1);
+    $(document).ready(function () {
         $("#firstname_single").val(cache.name);
         $("#fullname_appartment").val(cache.name);
         $("#fullname_commercial").val(cache.name);
         $("#mobileNumber_single").val(cache.phone);
-
-
     });
+    console.log(phonenum);
+    console.log(cache.phone);
     function Postdata() {
         // debugger;
         // alert("hi")

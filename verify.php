@@ -51,6 +51,7 @@
 
     $error = "Payment Failed";
     $pid = "";
+    $pid1 = "";
     if (empty($_POST['razorpay_payment_id']) === false) {
         $api = new Api($keyId, $keySecret);
 
@@ -59,6 +60,7 @@
             // come from a trusted source (session here, but
             // could be database or something else)
             $pid = $_POST['razorpay_payment_id'];
+            $pid1 = $_SESSION['razorpay_order_id'];
             $attributes = array(
                 'razorpay_order_id' => $_SESSION['razorpay_order_id'],
                 'razorpay_payment_id' => $_POST['razorpay_payment_id'],
@@ -72,6 +74,14 @@
         }
     }
     $date = date('Y-m-d');
+    $mycheck = "";
+    $mycheck1 = "";
+    if(isset($_COOKIE['myCheck'])){
+       $mycheck = $_COOKIE['myCheck'];
+      }
+      if(isset($_COOKIE['myCheck1'])){
+        $mycheck1 = $_COOKIE['myCheck1'];
+       }
     if ($success === true) {
 
         // if ($result === FALSE) { /* Handle error */
@@ -109,7 +119,7 @@
                      #dbdfea;padding: 11px 0;">
                         <p class="tm_invoice_number tm_m0" style="margin-top: 0;
             line-height: 1.5em;
-            margin-bottom: 15px;margin: 0px;">Invoice No: <b class="tm_primary_color" style="font-weight: bold;color: #111;">' . $_COOKIE['orderId'] . '</b></p>
+            margin-bottom: 15px;margin: 0px;">Invoice No: <b class="tm_primary_color" style="font-weight: bold;color: #111;">' . $pid1 . '</b></p>
                         <p class="tm_invoice_date tm_m0" style="margin-top: 0;line-height: 1.5em;margin-bottom: 15px;margin: 0px;">Date: <b class="tm_primary_color" style="font-weight: bold;color: #111;">' . $date . '</b></p>
                     </div>
                     <div class="tm_invoice_head tm_mb10" style="margin-top: 0;line-height: 1.5em;margin-bottom: 10px;display: flex;
@@ -161,7 +171,7 @@
                                         <tr>
                                             <td class="tm_width_7" style="border-top: 1px solid #dbdfea;padding: 10px 15px;
                   line-height: 1.55em;width: 58.33333333%;">
-                  ' . $_COOKIE['myCheck'] . ' ' . $_COOKIE['myCheck1'] . '
+                  ' . $mycheck . ' ' . $mycheck1 . '
                                             </td>
                                             <td class="tm_width_2" style="border-top: 1px solid #dbdfea;padding: 10px 10px;
                 line-height: 1.55em;width: 16.66666667%;">
@@ -258,7 +268,7 @@
                                             </td>
                                             <td class="tm_width_3 tm_primary_color tm_text_right tm_border_none tm_pt0" style="border-top: 1px solid #dbdfea;padding:
                     10px 15px;line-height: 1.55em;padding-top: 0;width: 25%;color: #111;text-align: right;border: none !important;">
-                    ' . (intval($_COOKIE['amount'])/118)*18 . '
+                    ' . (intval($_COOKIE['amount'])/118)*18 . '.00
                                             </td>
                                         </tr>
                                         <tr class="tm_border_top tm_border_bottom" style="border-bottom: 1px solid #dbdfea;border-top: 1px solid #dbdfea;">
