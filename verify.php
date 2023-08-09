@@ -46,7 +46,8 @@
     require('razorpay-php/Razorpay.php');
     use Razorpay\Api\Api;
     use Razorpay\Api\Errors\SignatureVerificationError;
-
+    $text = $_COOKIE['address'];
+    $wrappedText = wordwrap($text, 30, "<br>", true);
     $success = true;
 
     $error = "Payment Failed";
@@ -119,7 +120,7 @@
                      #dbdfea;padding: 11px 0;">
                         <p class="tm_invoice_number tm_m0" style="margin-top: 0;
             line-height: 1.5em;
-            margin-bottom: 15px;margin: 0px;">Invoice No: <b class="tm_primary_color" style="font-weight: bold;color: #111;">' . $pid1 . '</b></p>
+            margin-bottom: 15px;margin: 0px;">Invoice No: <b class="tm_primary_color" style="font-weight: bold;color: #111;"> # ' . $_COOKIE['orderId'] . '</b></p>
                         <p class="tm_invoice_date tm_m0" style="margin-top: 0;line-height: 1.5em;margin-bottom: 15px;margin: 0px;">Date: <b class="tm_primary_color" style="font-weight: bold;color: #111;">' . $date . '</b></p>
                     </div>
                     <div class="tm_invoice_head tm_mb10" style="margin-top: 0;line-height: 1.5em;margin-bottom: 10px;display: flex;
@@ -131,8 +132,8 @@
                             </p>
                             <p style="margin-top: 0;line-height: 1.5em;margin-bottom: 15px;">
 
-                            ' . $_COOKIE['address'] . '<br />
-                            ' . $_COOKIE['email'] . '<br />
+                            <b>Address : </b>' . $wrappedText . '<br />
+                            <b>Email : </b>' . $_COOKIE['email'] . '<br />
                             </p>
                         </div>
                         <div class="tm_invoice_right tm_text_right" style="margin-top: 0;line-height: 1.5em;text-align: right; width: 60%;">
@@ -156,8 +157,10 @@
                border-collapse: collapse;min-width: 600px;">
                                     <thead>
                                         <tr>
+                                        <th class="tm_width_7 tm_semi_bold tm_primary_color tm_gray_bg" style="text-align: left;padding: 10px 15px;line-height:
+                                1.55em;font-weight: 600;width: 29%;color: #111;background: #f5f6fa;">Service Type</th>
                                             <th class="tm_width_7 tm_semi_bold tm_primary_color tm_gray_bg" style="text-align: left;padding: 10px 15px;line-height:
-                                1.55em;font-weight: 600;width: 58.33333333%;color: #111;background: #f5f6fa;">Item Details</th>
+                                1.55em;font-weight: 600;width: 29.33333333%;color: #111;background: #f5f6fa;">Item Details</th>
                                             <th class="tm_width_2 tm_semi_bold tm_primary_color tm_gray_bg" style="text-align: left;padding: 10px 15px;line-height:
                  1.55em;font-weight: 600;width: 16.66666667%;
                  color: #111;background: #f5f6fa;">Price</th>
@@ -169,8 +172,10 @@
                                     </thead>
                                     <tbody>
                                         <tr>
+                                        <td class="tm_width_7" style="border-top: 1px solid #dbdfea;padding: 10px 15px;
+                  line-height: 1.55em;width: 29.33333333%;"><span id="servicetype"></span></td>
                                             <td class="tm_width_7" style="border-top: 1px solid #dbdfea;padding: 10px 15px;
-                  line-height: 1.55em;width: 58.33333333%;">
+                  line-height: 1.55em;width: 29.33333333%;">
                   ' . $mycheck . ' ' . $mycheck1 . '
                                             </td>
                                             <td class="tm_width_2" style="border-top: 1px solid #dbdfea;padding: 10px 10px;
@@ -183,8 +188,10 @@
                                             </td>
                                         </tr>
                                         <tr>
+                                        <td class="tm_width_7" style="border-top: 1px solid #dbdfea;padding: 10px 15px;
+                  line-height: 1.55em;width: 29.33333333%;"><span id="servicetype"></span></td>
                                             <td class="tm_width_7" style="border-top: 1px solid #dbdfea;  padding: 10px 15px;
-                        line-height: 1.55em;width: 58.33333333%;">
+                        line-height: 1.55em;width: 29.33333333%;">
                                             </td>
                                             <td class="tm_width_2" style="border-top: 1px solid #dbdfea;
                   padding: 10px 15px;line-height: 1.55em;width: 16.66666667%;">
@@ -194,8 +201,10 @@
                         16.66666667%;text-align: right;"> </td>
                                         </tr>
                                         <tr>
+                                        <td class="tm_width_7" style="border-top: 1px solid #dbdfea;padding: 10px 15px;
+                  line-height: 1.55em;width: 29.33333333%;"><span id="servicetype"></span></td>
                                             <td class="tm_width_7" style="border-top: 1px solid #dbdfea; padding: 10px 15px;
-                  line-height: 1.55em;width: 58.33333333%;">
+                  line-height: 1.55em;width: 29.33333333%;">
                                             </td>
                                             <td class="tm_width_2" style="border-top: 1px solid #dbdfea;padding: 10px 15px;line-height: 1.55em;width: 16.66666667%;">
                                             </td>
@@ -203,7 +212,9 @@
                       16.66666667%;text-align: right;"> </td>
                                         </tr>
                                         <tr>
-                                            <td class="tm_width_7" style="border-top: 1px solid #dbdfea;padding: 10px 15px;line-height: 1.55em;width: 58.33333333%;">
+                                        <td class="tm_width_7" style="border-top: 1px solid #dbdfea;padding: 10px 15px;
+                  line-height: 1.55em;width: 29.33333333%;"><span id="servicetype"></span></td>
+                                            <td class="tm_width_7" style="border-top: 1px solid #dbdfea;padding: 10px 15px;line-height: 1.55em;width: 29.33333333%;">
                                             </td>
                                             <td class="tm_width_2" style="border-top: 1px solid #dbdfea;padding: 10px 15px;
                          line-height: 1.55em;width: 16.66666667%;">
@@ -213,7 +224,9 @@
                        16.66666667%;text-align: right;"> </td>
                                         </tr>
                                         <tr>
-                                            <td class="tm_width_7" style="border-top: 1px solid #dbdfea;padding: 10px 15px;line-height: 1.55em;width: 58.33333333%;">
+                                        <td class="tm_width_7" style="border-top: 1px solid #dbdfea;padding: 10px 15px;
+                  line-height: 1.55em;width: 29.33333333%;"><span id="servicetype"></span></td>
+                                            <td class="tm_width_7" style="border-top: 1px solid #dbdfea;padding: 10px 15px;line-height: 1.55em;width: 29.33333333%;">
                                             </td>
                                             <td class="tm_width_2" style="border-top: 1px solid #dbdfea;padding: 10px 15px;
                                            line-height: 1.55em;width: 16.66666667%;">
@@ -396,11 +409,14 @@
         ?>
 
     <script>
-        debugger;
-        var loc = localStorage.getItem('userdata');
+        
+        var loc = localStorage.getItem('3eab60ec988c461f0cfc0e6ed6ed');
         var cache = JSON.parse(atob(loc));
+        var types = cache.servicetype;
+        // console.log(cache);
         var today = new Date();
-        document.getElementById('date').innerHTML = today.toDateString();
+        // document.getElementById('date').innerHTML = today.toDateString();
+        document.getElementById('servicetype').innerHTML = types;
         $(document).ready(function () {
             $("#firstname").text(cache.firstname);
             $("#lastname").text(cache.lastname);
@@ -416,11 +432,6 @@
             $("#price").text((parseInt(cache.amount) / 100 * 5 / 100) + parseInt(cache.amount) / 100);
             $("#address").text(cache.address);
             $("#pincode").text(cache.postCode);
-
-
-
-
-
         });  
     </script>
 </body>

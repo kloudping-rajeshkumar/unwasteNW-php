@@ -36,7 +36,7 @@
     function postData(){
         
         var jsondata = {"Amount" :400.0, "Currency" :"INR"}
-        debugger;
+        
         // var model=  {
         //     name:document.getElementById('name').value,
         //     phone:document.getElementById('phone').value,
@@ -55,7 +55,7 @@
             contentType:"application/json; charset=utf-8",
             dataType:"json",
             success: function(){
-                    debugger;
+                    
                     alert("Data: " + model + "\nStatus: " );
                 }
               })
@@ -68,7 +68,7 @@
 
     $("button").click(function(){
        
-debugger;
+
 $.ajax({  
             type: "GET",  
             url: "http://localhost:7071/api/Customer/GetAll", 

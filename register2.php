@@ -687,13 +687,14 @@
     // }
 </script>
 <script>
-    debugger;
+    
     var loc = localStorage.getItem('3eab60ec988c461f0cfc0e6ed6ed');
     var cache = JSON.parse(atob(loc));
     var phonenum = cache.phone;
 
     // Function to set a cookie
-    function setCookie(name, value, days) {
+    if(phonenum){
+        function setCookie(name, value, days) {
         var expires = "";
         if (days) {
             var date = new Date();
@@ -701,6 +702,7 @@
             expires = "; expires=" + date.toUTCString();
         }
         document.cookie = name + "=" + value + expires + "; path=/";
+    }
     }
 
     // Set a cookie named "mobile" with the value of 'phonenum' that expires in 1 day
@@ -711,16 +713,17 @@
         $("#fullname_commercial").val(cache.name);
         $("#mobileNumber_single").val(cache.phone);
     });
-    console.log(phonenum);
-    console.log(cache.phone);
+    // console.log(phonenum);
+    // console.log(cache.phone);
+    var phone = cache.phone;
     function Postdata() {
-        // debugger;
+        // 
         // alert("hi")
 
         var model = null;
 
         if ($("#servicetype .active-btn").attr("data-type") == "Single") {
-            // debugger;
+            // 
             model = {
                 firstname: document.getElementById('firstname_single').value,
                 lastname: document.getElementById('lastname_single').value,
@@ -728,44 +731,43 @@
                 emailAddress: document.getElementById('emailAddress_single').value,
                 servicetype: $("#servicetype .active-btn").attr("data-type"),
                 orderid: Math.random().toString().slice(2, 11),
-                // amount: totalvas,
-                // wastetype: document.getElementById('demo').innerHTML,
+                amount: totalvas,
+                wastetype: type1,
                 address: document.getElementById('address_single').value,
                 postCode: document.getElementById('postCode_single').value
-
             };
             
         }
         else if ($("#servicetype .active-btn").attr("data-type") == "Appartment") {
-            // debugger;
+            
             model = {
                 firstname: document.getElementById('fullname_appartment').value,
                 name: document.getElementById('name_appartment').value,
                 designation: document.getElementById('designation_appartment').value,
-                mobileNumber: cache.phone,
+                mobileNumber: phone,
                 noofHouse: document.getElementById('noofHouse_appartment').value,
                 emailAddress: document.getElementById('emailAddress_appartment').value,
                 servicetype: $("#servicetype .active-btn").attr("data-type"),
                 orderid: Math.random().toString().slice(2, 11),
-                // amount: totalvas,
-                // wastetype: document.getElementById('demo').innerHTML,
+                amount: totalvas,
+                wastetype: type1,
                 address: document.getElementById('address_appartment').value,
                 postCode: document.getElementById('postCode_appartment').value
 
             };
         }
         else {
-            // debugger;
+            // 
             model = {
                 firstname: document.getElementById('fullname_commercial').value,
                 name: document.getElementById('name_commercial').value,
-                mobileNumber: cache.phone,
+                mobileNumber: phone,
                 designation: document.getElementById('designation_commercial').value,
                 emailAddress: document.getElementById('emailAddress_commercial').value,
                 servicetype: $("#servicetype .active-btn").attr("data-type"),
                 orderid: Math.random().toString().slice(2, 11),
-                // amount: totalvas,
-                // wastetype: document.getElementById('demo').innerHTML,
+                amount: totalvas,
+                wastetype: type1,
                 address: document.getElementById('address_commercial').value,
                 postCode: document.getElementById('postCode_commercial').value
 
@@ -774,6 +776,12 @@
 
         let encoded = window.btoa(JSON.stringify(model));
         localStorage.setItem('3eab60ec988c461f0cfc0e6ed6ed', encoded);
+        var loc = localStorage.getItem('3eab60ec988c461f0cfc0e6ed6ed');
+        var cache = JSON.parse(atob(loc));
+        var orderIdss = cache.orderid;
+
+        // Set the orderId as a cookie
+        document.cookie = "orderId=" + orderIdss;
 
         
         // ... (other properties)
@@ -791,7 +799,7 @@
         //     contentType:"application/json; charset=utf-8",
         //     dataType:"json",
         //     success: function(){
-        //             debugger;
+        //             
         //             alert("Data: " + model + "\nStatus: " );
         //         }
         //     });
@@ -829,22 +837,29 @@
     dryCheckbox1.addEventListener("change", updateTotal1);
     organicCheckbox2.addEventListener("change", updateTotal2);
     dryCheckbox2.addEventListener("change", updateTotal2);
-    // var totalvas;
+    var totalvas;
+    var type1;
     // console.log(totalvas);
     function updateTotal() {
         let total = 0;
 
         if (organicCheckbox.checked) {
             total += organicPrice + organicPrice * gstRate;
+            type1 = "Organic";
         }
 
         if (dryCheckbox.checked) {
             total += dryPrice + dryPrice * gstRate;
+            type1 = "Dry";
         }
+
         totalAmountInput.value = total.toFixed(2);
-        // var totalva = total.toFixed(2);
-        // totalvas = totalva ;
-        // console.log(totalvas);
+        var totalva = total.toFixed(2);
+        totalvas = parseInt(totalva) ;
+        if(totalvas > 120){
+            type1 = "Organic , Dry"
+        }
+        console.log(type1);
 
         totalLabel.innerHTML = `<span></span>Total : ₹${total.toFixed(2)}/-<br><span style="font-weight: 600;font-size: 14px;color: #7c7c7c;">Inclusive of 18% GST</span>`;
     }
@@ -853,15 +868,20 @@
 
         if (organicCheckbox1.checked) {
             total += organicPrice1 + organicPrice1 * gstRate1;
+            type1 = "Wet";
         }
 
         if (dryCheckbox1.checked) {
             total += dryPrice1 + dryPrice1 * gstRate1;
+            type1 = "Dry";
         }
         totalAmountInput1.value = total.toFixed(2);
-        // var totalva = total.toFixed(2);
-        // totalvas = totalva ;
-        // console.log(totalvas);
+        var totalva = total.toFixed(2);
+        totalvas = parseInt(totalva) ;
+        if(totalvas > 100){
+            type1 = "Wet , Dry"
+        }
+        console.log(type1);
         
 
         totalLabel1.innerHTML = `<span></span>Total : ₹${total.toFixed(2)}/-<br><span style="font-weight: 600;font-size: 14px;color: #7c7c7c;">Inclusive of 18% GST</span>`;
@@ -871,18 +891,28 @@
 
         if (organicCheckbox2.checked) {
             total += organicPrice2 + organicPrice2 * gstRate2;
+            type1 = "Wet";
         }
 
         if (dryCheckbox2.checked) {
             total += dryPrice2 + dryPrice2 * gstRate2;
+            type1 = "Dry";
         }
-        // var totalva = total.toFixed(2);
-        // totalvas = totalva ;
-        // console.log(totalvas);
+        var totalva = total.toFixed(2);
+        totalvas = parseInt(totalva) ;
+        if(totalvas > 100){
+            type1 = "Wet , Dry"
+        }
+        console.log(type1);
         totalAmountInput2.value = total.toFixed(2);
+        // if (totalAmountInput2.value == ""){
+
+        // }
 
         totalLabel2.innerHTML = `<span></span>Total : ₹${total.toFixed(2)}/-<br><span style="font-weight: 600;font-size: 14px;color: #7c7c7c;">Inclusive of 18% GST</span>`;
     }
+
+    // console.log(orderId);
 
 //     // Retrieve the encoded data from local storage
 // var encodedData = localStorage.getItem('3eab60ec988c461f0cfc0e6ed6ed');
@@ -896,6 +926,23 @@
 // // Now you can access the properties as needed
 // // console.log(storedModel.amount);
 // console.log(storedModel.orderid);
+
+
+//     var loc = localStorage.getItem('3eab60ec988c461f0cfc0e6ed6ed');
+//     var cache = JSON.parse(atob(loc));
+//     console.log(cache.orderid)
+//     var orderId = cache.orderid;
+//     $.ajax({
+//         url: 'new_user.php',
+//         method: 'POST',
+//         data: { orderId: orderId },
+//         success: function(response) {
+//             console.log('AJAX request successful');
+//         },
+//         error: function(xhr, status, error) {
+//             console.error('AJAX request error:', error);
+//         }
+//     });
 </script>
 
 </html>

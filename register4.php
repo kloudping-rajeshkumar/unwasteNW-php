@@ -2,7 +2,15 @@
 $redirectUrl = "new_user.php";
 
 $expiryTime = time() + (60 * 60 * 24);
-$orderId = substr(str_shuffle('0123456789'), 0, 9);
+
+?>
+<!-- <script>
+    var loc = localStorage.getItem('3eab60ec988c461f0cfc0e6ed6ed');
+    var cache = JSON.parse(atob(loc));
+    var orderIdss = cache.orderid;
+    document.cookie = "orderId=" + orderIdss;
+</script> -->
+<?php
 if ($_POST["servicetype"] == "Individual"){
     $amount = $_POST["total_amount"];
     $fname = $_POST["firstname"];
@@ -26,7 +34,7 @@ if ($_POST["servicetype"] == "Individual"){
     setcookie("email", $email, $expiryTime);
     setcookie("address", $address, $expiryTime);
     setcookie("pincode", $pincode, $expiryTime);
-    setcookie("orderId", $orderId, $expiryTime);
+    // setcookie("orderId", $orderId, $expiryTime);
     header("Location: $redirectUrl");
 }
 elseif($_POST["servicetype"] == "Appartments"){
@@ -56,7 +64,7 @@ elseif($_POST["servicetype"] == "Appartments"){
     setcookie("number", $number, $expiryTime);
     setcookie("address", $address, $expiryTime);
     setcookie("pincode", $pincode, $expiryTime);
-    setcookie("orderId", $orderId, $expiryTime);
+    // setcookie("orderId", $orderId, $expiryTime);
     header("Location: $redirectUrl");
 }
 elseif($_POST["servicetype"] == "Commercial"){
@@ -84,7 +92,7 @@ elseif($_POST["servicetype"] == "Commercial"){
     setcookie("email", $email, $expiryTime);
     setcookie("address", $address, $expiryTime);
     setcookie("pincode", $pincode, $expiryTime);
-    setcookie("orderId", $orderId, $expiryTime);
+    // setcookie("orderId", $orderId, $expiryTime);
     header("Location: $redirectUrl");
 }
 

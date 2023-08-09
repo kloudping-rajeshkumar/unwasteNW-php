@@ -29,7 +29,7 @@
         var loc = localStorage.getItem('3eab60ec988c461f0cfc0e6ed6ed');
         var cache = JSON.parse(atob(loc));
         $(document).ready(function () {
-            debugger;
+            
             $("#firstname").text(cache.firstname);
             $("#lastname").text(cache.lastname);
             $("#address").text(cache.address);
@@ -181,27 +181,51 @@ if (isset($_COOKIE['lname'])) {
     <input type="hidden" name="razorpay_signature" id="razorpay_signature">
 </form>
 <script>
+    var responseData = ''
+    $.ajax({
+    url: "http://localhost:7071/api/authentication/login",
+    type: "POST",
+    data: JSON.stringify({
+        username: "admin@unwastenetwork.in",
+        password: "admin@123"
+    }),
+    contentType: "application/json; charset=utf-8",
+    dataType: "json",
+    success: function (response) {
+        // 'response' contains the data returned from the server
+        responseData = response.token;
+
+        // You can now use the 'responseData' variable as needed
+        // console.log("Response Data:", responseData);
+    },
+    error: function (error) {
+        // Handle error cases here
+        console.error("Error:", error);
+    }
+    });
+
 
     var options = <?php echo $json ?>;
     options.handler = function (response) {
-        // var loc = localStorage.getItem('userdata');
-        // var cache = JSON.parse(atob(loc));
-        // cache.pid = response.razorpay_payment_id;
+        var loc = localStorage.getItem('3eab60ec988c461f0cfc0e6ed6ed');
+        var cache = JSON.parse(atob(loc));
+        cache.pid = response.razorpay_payment_id;
         // debugger;
-        // $.ajax({
-        //     url: "http://localhost:7071/api/Customer/Add",
-        //     type: "POST",
-        //     beforeSend: function (request) {
-        //         request.setRequestHeader("Authorization", "Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbGFkZHJlc3MiOiJhZG1pbkB1bndhc3RlbmV0d29yay5pbiIsInJvbGUiOiJBZG1pbiIsImV4cCI6MTY4MzM4ODYxMiwiaXNzIjoiYXBpLm15YWRtaW4uY29tIiwiYXVkIjoiYXBpLm15YWRtaW4uY29tIn0.-kI8oHfmO4RwKEt_RAFsOYyOdZLf5klpfDF1I5Yp5Ik");
-        //     },
-        //     data: JSON.stringify(cache),
-        //     contentType: "application/json; charset=utf-8",
-        //     dataType: "json",
-        //     success: function () {
-        //         debugger;
-        //         alert("Data: " + cache + "\nStatus: ");
-        //     }
-        // });
+        $.ajax({
+            url: "http://localhost:7071/api/Customer/Add",
+            type: "POST",
+            beforeSend: function (request) {
+                request.setRequestHeader("Authorization", "Bearer "+responseData);
+            },
+            data: JSON.stringify(cache),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function () {
+              
+                // alert("Data: " + cache + "\nStatus: ");
+                
+            }
+        });
         document.getElementById('razorpay_payment_id').value = response.razorpay_payment_id;
         document.getElementById('razorpay_signature').value = response.razorpay_signature;
         document.razorpayform.submit();
@@ -221,5 +245,19 @@ if (isset($_COOKIE['lname'])) {
         e.preventDefault();
     }
 </script>
+<!-- <script>
+    var loc = localStorage.getItem('3eab60ec988c461f0cfc0e6ed6ed');
+    var cache = JSON.parse(atob(loc));
+        $.ajax({
+        url: "./register4.php",
+        type: "POST",
+        data: JSON.stringify(cache),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function () {
+            // alert("Data: " + cache + "\nStatus: ");
+        }
+    });
+</script> -->
 
 <?php include 'end.php'; ?>

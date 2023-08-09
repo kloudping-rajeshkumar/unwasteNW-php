@@ -272,7 +272,7 @@
 <script>
     // $(document).ready(function () {
     //     $("#btn-verify").click(function () {
-    //         debugger;
+    //         
     //         var hash = Cookies.get('otp');
     //         // var model = JSON.parse(atob(loc));
     //         var otp = document.getElementById("otp");
