@@ -409,6 +409,16 @@
         ?>
 
     <script>
+        // alert("testr");
+        document.addEventListener('DOMContentLoaded', function() {
+        var loc = localStorage.getItem('3eab60ec988c461f0cfc0e6ed6ed');
+
+        if (loc == null) {
+            // Redirect to another URL
+            window.location.href = 'register.php';
+        }
+        });
+
         
         var loc = localStorage.getItem('3eab60ec988c461f0cfc0e6ed6ed');
         var cache = JSON.parse(atob(loc));
@@ -435,23 +445,21 @@
         });  
     </script>
     <script>
-        // function deleteAllCookies() {
-        //     var cookies = document.cookie.split(";");
-
-        //     for (var i = 0; i < cookies.length; i++) {
-        //         var cookie = cookies[i];
-        //         var eqPos = cookie.indexOf("=");
-        //         var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-        //         document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
-        //     }
-        // }
-        // document.addEventListener('DOMContentLoaded', function() {
-        //     localStorage.removeItem('3eab60ec988c461f0cfc0e6ed6ed');
-        //     deleteAllCookies();
-        //     console.log('Local storage item removed.');
-        // });
-
+        document.addEventListener('DOMContentLoaded', function() {
+            localStorage.removeItem('3eab60ec988c461f0cfc0e6ed6ed');
+            console.log('Local storage item removed.');
+        });
     </script>
 </body>
+<?php
+// foreach ($_COOKIE as $name => $value) {
+//     // echo "Deleting cookie: $name<br>";
+//     if (setcookie($name, "", time() - 3600, "/")) {
+//         // echo "Cookie $name deleted successfully.<br>";
+//     } else {
+//         // echo "Error deleting cookie $name.<br>";
+//     }
+// }
+?>
 
 </html>

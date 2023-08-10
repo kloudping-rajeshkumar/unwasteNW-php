@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php include 'head.php'; ?>
+
 <style>
     .main-header-three {
         background: #04a9fb !important;

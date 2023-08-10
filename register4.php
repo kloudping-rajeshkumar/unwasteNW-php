@@ -1,4 +1,15 @@
 <?php 
+?>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var loc = localStorage.getItem('3eab60ec988c461f0cfc0e6ed6ed');
+
+        if (loc == null) {
+            // Redirect to another URL
+            window.location.href = 'register.php';
+        }
+        });
+</script><?php
 $redirectUrl = "new_user.php";
 
 $expiryTime = time() + (60 * 60 * 24);

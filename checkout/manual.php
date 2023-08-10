@@ -2,6 +2,16 @@
 <html lang="en">
 
 <?php include 'head.php'; ?>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var loc = localStorage.getItem('3eab60ec988c461f0cfc0e6ed6ed');
+
+        if (loc == null) {
+            // Redirect to another URL
+            window.location.href = 'register.php';
+        }
+        });
+</script>
 
 <head>
     <style>

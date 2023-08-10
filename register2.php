@@ -6,18 +6,17 @@
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 </head>
-<?php include 'head.php';
-// $amountss = "amount";
-// foreach ($_COOKIE as $name => $value) {
-//     echo "Deleting cookie: $name<br>";
-//     if (setcookie($name, "", time() - 3600, "/")) {
-//         echo "Cookie $name deleted successfully.<br>";
-//     } else {
-//         echo "Error deleting cookie $name.<br>";
-//     }
-// }
+<?php include 'head.php';?>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var loc = localStorage.getItem('3eab60ec988c461f0cfc0e6ed6ed');
 
-// setcookie($amountss, "", time() - 3600, "/");?>
+        if (loc == null) {
+            // Redirect to another URL
+            window.location.href = 'register.php';
+        }
+        });
+</script>
 <style>
     .main-header-three {
         background: #04a9fb !important;
@@ -832,7 +831,7 @@
     const totalLabel2 = document.getElementById("check2");
     const totalAmountInput2 = document.getElementById("total_amount2");
 
-    const organicPrice = 1; // Update with actual price
+    const organicPrice = 100; // Update with actual price
     const dryPrice = 50; // Update with actual price
     const gstRate = 0;
     const organicPrice1 = 50; // Update with actual price
