@@ -833,7 +833,7 @@
 
     const organicPrice = 100; // Update with actual price
     const dryPrice = 50; // Update with actual price
-    const gstRate = 0;
+    const gstRate = 0.18;
     const organicPrice1 = 50; // Update with actual price
     const dryPrice1 = 50; // Update with actual price
     const gstRate1 = 0.18;
