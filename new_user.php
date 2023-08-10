@@ -4,8 +4,10 @@
     // var cache = JSON.parse(atob(loc));
     // var orderIdss = cache;
     // console.log(orderIdss);
+
 </script>
 <?php
+
 require('config.php');
 require('razorpay-php/Razorpay.php');
 session_start();
@@ -16,6 +18,8 @@ $fname = $_COOKIE['fname'];
 $email = $_COOKIE['email'];
 $orderId = $_COOKIE['orderId'];
 $address = $_COOKIE['address'];
+
+setcookie($amount, '', time() - 3600);
 ?>
 <script>
 //     var loc = localStorage.getItem('3eab60ec988c461f0cfc0e6ed6ed');
@@ -79,4 +83,5 @@ $json = json_encode($data);
 
 include('./checkout/manual.php');
 //require("checkout/manual.php?firstname=rajesh");
+
 ?>

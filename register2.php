@@ -6,7 +6,18 @@
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 </head>
-<?php include 'head.php'; ?>
+<?php include 'head.php';
+// $amountss = "amount";
+// foreach ($_COOKIE as $name => $value) {
+//     echo "Deleting cookie: $name<br>";
+//     if (setcookie($name, "", time() - 3600, "/")) {
+//         echo "Cookie $name deleted successfully.<br>";
+//     } else {
+//         echo "Error deleting cookie $name.<br>";
+//     }
+// }
+
+// setcookie($amountss, "", time() - 3600, "/");?>
 <style>
     .main-header-three {
         background: #04a9fb !important;
@@ -821,9 +832,9 @@
     const totalLabel2 = document.getElementById("check2");
     const totalAmountInput2 = document.getElementById("total_amount2");
 
-    const organicPrice = 100; // Update with actual price
+    const organicPrice = 1; // Update with actual price
     const dryPrice = 50; // Update with actual price
-    const gstRate = 0.18;
+    const gstRate = 0;
     const organicPrice1 = 50; // Update with actual price
     const dryPrice1 = 50; // Update with actual price
     const gstRate1 = 0.18;
