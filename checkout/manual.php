@@ -193,7 +193,8 @@ if (isset($_COOKIE['lname'])) {
 <script>
     var responseData = ''
     $.ajax({
-    url: "http://localhost:7071/api/authentication/login",
+   url: "https://api.unwastenetwork.com/api/authentication/login",
+    // url: "http://localhost:7071/api/authentication/login",
     type: "POST",
     data: JSON.stringify({
         username: "admin@unwastenetwork.in",
@@ -222,7 +223,8 @@ if (isset($_COOKIE['lname'])) {
         cache.pid = response.razorpay_payment_id;
         // debugger;
         $.ajax({
-            url: "http://localhost:7071/api/Customer/Add",
+           url: "https://api.unwastenetwork.com/api/Customer/Add",
+            // url: "http://localhost:7071/api/Customer/Add",
             type: "POST",
             beforeSend: function (request) {
                 request.setRequestHeader("Authorization", "Bearer "+responseData);

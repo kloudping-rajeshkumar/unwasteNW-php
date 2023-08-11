@@ -17,6 +17,7 @@
         }
         });
 </script>
+
 <style>
     .main-header-three {
         background: #04a9fb !important;
@@ -110,23 +111,22 @@
                                                     </div>
                                                     <div class="col-xl-12">
                                                         <div class="request-a-pickup__tab-content-size-box">
-                                                            <label>Select the categories of waste to be handled in your
+                                                            <label id="message1">Select the categories of waste to be handled in your
                                                                 service</label>
                                                             <ul
                                                                 class="list-unstyled request-a-pickup__tab-content-size-list ">
 
                                                                 <li>
                                                                     <input type="checkbox" name="myCheck" value="wet"
-                                                                        id="option_5" class=checked
-                                                                        ">
+                                                                        id="option_5" class="checked">
                                                                     <label for="option_5"><span></span>Wet</label>
                                                                 </li>
                                                                 <li>
                                                                     <input type="checkbox" name="myCheck1" value="dry"
-                                                                        id="option_6" class=checked
-                                                                        " >
+                                                                        id="option_6" class="checked">
                                                                     <label for="option_6"><span></span>Dry</label>
                                                                 </li>
+                                                                <!-- <label id="message" style="padding-left:10px;color:"></label> -->
                                                                 <!-- <div id="demo"></div> -->
                                                             </ul>
                                                         </div>
@@ -152,12 +152,12 @@
                                                                 placeholder="Post Code*" name="pincode" required>
                                                         </div>
                                                     </div>
-                                                    <div class="col-xl-12">
+                                                    <!-- <div class="col-xl-12">
                                                         <div class="request-a-pickup__tab-content-input-box">
-                                                            <!-- <p id="amount_single"></p> -->
+                                                            <p id="amount_single"></p>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-xl-12"
+                                                    </div> -->
+                                                    <!-- <div class="col-xl-12"
                                                         style="margin-top: -31px;margin-bottom: 20px;">
 
                                                         <div style="text-align:right;">
@@ -167,7 +167,7 @@
                                                                     class="icon-placeholder"></span> Get
                                                                 Location</button>
                                                         </div>
-                                                    </div>
+                                                    </div> -->
 
                                                     <div class="request-a-pickup__tab-content-extra">
                                                         <ul
@@ -251,19 +251,19 @@
                                                     </div>
                                                     <div class="col-xl-6">
                                                         <div class="request-a-pickup__tab-content-size-box">
-                                                            <label style="line-height: 16px;">Select the categories of
+                                                            <label style="line-height: 16px;" id="message2">Select the categories of
                                                                 waste to be handled in your service</label>
                                                             <ul
                                                                 class="list-unstyled request-a-pickup__tab-content-size-list">
 
                                                                 <li>
-                                                                    <input type="checkbox" name="myCheck" value="wet"
+                                                                    <input type="checkbox" name="myCheck" value="Wet"
                                                                         id="option_7" class=checked
                                                                         ">
                                                                     <label for="option_7"><span></span>Wet</label>
                                                                 </li>
                                                                 <li>
-                                                                    <input type="checkbox" name="myCheck1" value="dry"
+                                                                    <input type="checkbox" name="myCheck1" value="Dry"
                                                                         id="option_8" class=checked
                                                                         ">
                                                                     <label for="option_8"><span></span>Dry</label>
@@ -293,12 +293,12 @@
                                                                 placeholder="Post Code*" name="pincode" maxlength="6" minlength="6" required>
                                                         </div>
                                                     </div>
-                                                    <div class="col-xl-12">
+                                                    <!-- <div class="col-xl-12">
                                                         <div class="request-a-pickup__tab-content-input-box">
-                                                            <!-- <p id="amount_appartments"></p> -->
+                                                            <p id="amount_appartments"></p>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-xl-12"
+                                                    </div> -->
+                                                    <!-- <div class="col-xl-12"
                                                         style="margin-top: -31px;margin-bottom: 20px;">
 
                                                         <div style="text-align:right;">
@@ -308,7 +308,7 @@
                                                                     class="icon-placeholder"></span> Get
                                                                 Location</button>
                                                         </div>
-                                                    </div>
+                                                    </div> -->
 
                                                     <div class="request-a-pickup__tab-content-extra">
                                                         <ul
@@ -385,7 +385,7 @@
                                                     </div>
                                                     <div class="col-xl-12">
                                                         <div class="request-a-pickup__tab-content-size-box">
-                                                            <label style="line-height: 16px;">Select the categories of
+                                                            <label style="line-height: 16px;" id="message3">Select the categories of
                                                                 waste to be handled in your service</label>
                                                             <ul
                                                                 class="list-unstyled request-a-pickup__tab-content-size-list">
@@ -425,12 +425,12 @@
                                                                 placeholder="Post Code*" name="pincode" maxlength="6" minlength="6" required>
                                                         </div>
                                                     </div>
-                                                    <div class="col-xl-12">
+                                                    <!-- <div class="col-xl-12">
                                                         <div class="request-a-pickup__tab-content-input-box">
-                                                            <!-- <p id="amount_commercial"></p> -->
+                                                            <p id="amount_commercial"></p>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-xl-12"
+                                                    </div> -->
+                                                    <!-- <div class="col-xl-12"
                                                         style="margin-top: -31px;margin-bottom: 20px;">
 
                                                         <div style="text-align:right;">
@@ -440,7 +440,7 @@
                                                                     class="icon-placeholder"></span> Get
                                                                 Location</button>
                                                         </div>
-                                                    </div>
+                                                    </div> -->
 
                                                     <div class="request-a-pickup__tab-content-extra">
                                                         <ul
@@ -727,8 +727,35 @@
     // console.log(cache.phone);
     var phone = cache.phone;
     function Postdata() {
-        // 
-        // alert("hi")
+
+        if(totalvas == undefined || totalvas == 0){
+            if ($("#servicetype .active-btn").attr("data-type") == "Single") {
+                const inputField = document.getElementById("extra_weight_2"); // Replace with your actual input field ID
+                if (inputField) {
+                    inputField.checked = false;
+                }
+                const messageElement = document.getElementById("message1"); // Replace with your actual message element ID
+                // messageElement.textContent = "Please Select Your Waste Type";
+                messageElement.style.color = "red";
+            }
+            else if ($("#servicetype .active-btn").attr("data-type") == "Appartment") {
+                const inputField = document.getElementById("app_extra_weight"); // Replace with your actual input field ID
+                if (inputField) {
+                    inputField.checked = false;
+                }
+                const messageElement = document.getElementById("message2"); // Replace with your actual message element ID
+                // messageElement.textContent = "Please Select Your Waste Type";
+                messageElement.style.color = "red";
+            }else {
+                const inputField = document.getElementById("comm_extra_weight"); // Replace with your actual input field ID
+                if (inputField) {
+                    inputField.checked = false;
+                }
+                const messageElement = document.getElementById("message3"); // Replace with your actual message element ID
+                // messageElement.textContent = "Please Select Your Waste Type";
+                messageElement.style.color = "red";
+            }
+        }
 
         var model = null;
 
@@ -867,9 +894,9 @@
         var totalva = total.toFixed(2);
         totalvas = parseInt(totalva) ;
         if(totalvas > 120){
-            type1 = "Organic , Dry"
+            type1 = "Organic,Dry"
         }
-        console.log(type1);
+        // console.log(type1);
 
         totalLabel.innerHTML = `<span></span>Total : ₹${total.toFixed(2)}/-<br><span style="font-weight: 600;font-size: 14px;color: #7c7c7c;">Inclusive of 18% GST</span>`;
     }
@@ -889,9 +916,9 @@
         var totalva = total.toFixed(2);
         totalvas = parseInt(totalva) ;
         if(totalvas > 100){
-            type1 = "Wet , Dry"
+            type1 = "Wet,Dry"
         }
-        console.log(type1);
+        // console.log(type1);
         
 
         totalLabel1.innerHTML = `<span></span>Total : ₹${total.toFixed(2)}/-<br><span style="font-weight: 600;font-size: 14px;color: #7c7c7c;">Inclusive of 18% GST</span>`;
@@ -911,9 +938,9 @@
         var totalva = total.toFixed(2);
         totalvas = parseInt(totalva) ;
         if(totalvas > 100){
-            type1 = "Wet , Dry"
+            type1 = "Wet,Dry"
         }
-        console.log(type1);
+        // console.log(type1);
         totalAmountInput2.value = total.toFixed(2);
         // if (totalAmountInput2.value == ""){
 
@@ -921,7 +948,6 @@
 
         totalLabel2.innerHTML = `<span></span>Total : ₹${total.toFixed(2)}/-<br><span style="font-weight: 600;font-size: 14px;color: #7c7c7c;">Inclusive of 18% GST</span>`;
     }
-
     // console.log(orderId);
 
 //     // Retrieve the encoded data from local storage
@@ -954,5 +980,6 @@
 //         }
 //     });
 </script>
+
 
 </html>

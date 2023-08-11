@@ -447,7 +447,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             localStorage.removeItem('3eab60ec988c461f0cfc0e6ed6ed');
-            console.log('Local storage item removed.');
+            // console.log('Local storage item removed.');
         });
     </script>
 </body>
