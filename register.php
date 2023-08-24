@@ -330,6 +330,11 @@
         };
         let encoded = window.btoa(JSON.stringify(model));
         localStorage.setItem('3eab60ec988c461f0cfc0e6ed6ed', encoded);
+        var model1 = {
+            page: 1,
+        };
+        let encoded1 = window.btoa(JSON.stringify(model1));
+        localStorage.setItem('3eab60ec988c461f0cfc0e6ed6ed1', encoded1);
         location.href = 'register1.php';
     };
 </script>

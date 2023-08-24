@@ -1,7 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php include 'head.php'; ?>
-
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var loc1 = localStorage.getItem('3eab60ec988c461f0cfc0e6ed6ed1');
+        var cache1 = JSON.parse(atob(loc1));
+        var page = cache1.page;
+        // console.log(page);
+        if (page !== 1) {
+            window.location.href = 'register.php';
+        }
+        var model1 = {
+            page: 2,
+        };
+        let encoded1 = window.btoa(JSON.stringify(model1));
+        localStorage.setItem('3eab60ec988c461f0cfc0e6ed6ed1', encoded1);
+        // location.href = 'register1.php';
+        // console.log(page);
+        });
+</script>
 <style>
     .main-header-three {
         background: #04a9fb !important;
@@ -289,6 +306,8 @@
     function eraseCookie(name) {
         document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     }
+
+    
 
 
 </script>

@@ -11,6 +11,19 @@
             // Redirect to another URL
             window.location.href = 'register.php';
         }
+        var loc1 = localStorage.getItem('3eab60ec988c461f0cfc0e6ed6ed1');
+        var cache1 = JSON.parse(atob(loc1));
+        var page = cache1.page;
+        // console.log(page);
+        if (page !== 3) {
+            window.location.href = 'register.php';
+        }
+        var model1 = {
+            page: 4,
+        };
+        let encoded1 = window.btoa(JSON.stringify(model1));
+        localStorage.setItem('3eab60ec988c461f0cfc0e6ed6ed1', encoded1);
+        // console.log(page);
         });
 
 </script>
