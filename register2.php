@@ -9,16 +9,16 @@
 <?php include 'head.php';?>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+
         var loc = localStorage.getItem('3eab60ec988c461f0cfc0e6ed6ed');
 
         if (loc == null) {
-            // Redirect to another URL
             window.location.href = 'register.php';
         }
         var loc1 = localStorage.getItem('3eab60ec988c461f0cfc0e6ed6ed1');
         var cache1 = JSON.parse(atob(loc1));
         var page = cache1.page;
-        // console.log(page);
+
         if (page !== 2) {
             window.location.href = 'register.php';
         }
@@ -27,10 +27,9 @@
         };
         let encoded1 = window.btoa(JSON.stringify(model1));
         localStorage.setItem('3eab60ec988c461f0cfc0e6ed6ed1', encoded1);
-        // console.log(page);
+
         });
 </script>
-
 <style>
     .main-header-three {
         background: #04a9fb !important;
@@ -75,10 +74,10 @@
         <div class="container">
             <div class="request-a-pickup__tab-box tabs-box">
                 <ul class="tab-buttons clearfix list-unstyled" id="servicetype">
-                    <li data-tab="#single" data-type="Single" id="servicetype1" class="tab-btn active-btn ">
-                        <span>Individual</span>
-                    </li>
-                    <li data-tab="#appartment" data-type="Appartment" id="servicetype2" class="tab-btn ">
+                    <!--<li data-tab="#single" data-type="Single" id="servicetype1" class="tab-btn">-->
+                    <!--    <span>Individual</span>-->
+                    <!--</li>-->
+                    <li data-tab="#appartment" data-type="Appartment" id="servicetype2" class="tab-btn active-btn  ">
                         <span>Appartments</span>
                     </li>
                     <li data-tab="#commercial" data-type="Commercial" id="servicetype3" class="tab-btn ">
@@ -87,139 +86,140 @@
                 </ul>
                 <div class="tabs-content">
                     <!--tab-->
-                    <div class="tab active-tab" id="single">
+                    <!--<div class="tab" id="single">-->
 
-                        <div class="request-a-pickup__tab-content">
-                            <div class="request-a-pickup__tab-content-form-box">
-                                <form class="request-a-pickup__tab-content-form" method="post" action="register4.php">
-                                    <div class="row">
-                                        <p class="request-a-pickup__tab-content-text-box" style="padding-bottom:10px;">
-                                            New Users can fill in the form and register for the service.</p>
-                                        <div class="col-xl-6">
-                                            <div class="request-a-pickup__tab-content-form-left">
-                                                <div class="row">
-                                                    <div class="col-xl-6">
-                                                        <div class="request-a-pickup__tab-content-input-box">
-                                                            <input id="firstname_single" type="text"
-                                                                placeholder="First Name*" name="firstname" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-6">
-                                                        <div class="request-a-pickup__tab-content-input-box">
-                                                            <input id="lastname_single" type="text"
-                                                                placeholder="Last Name*" name="lname" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-12">
-                                                        <div class="request-a-pickup__tab-content-input-box">
-                                                            <input id="emailAddress_single" type="email"
-                                                                placeholder="Email Address*" name="email" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-12">
-                                                        <div class="request-a-pickup__tab-content-input-box">
-                                                            <input id="mobileNumber_single" type="text"
-                                                                placeholder="Secondary Phone No*" maxlength="10" minlength="10" name="number" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-12">
-                                                        <div class="request-a-pickup__tab-content-size-box">
-                                                            <label id="message1">Select the categories of waste to be handled in your
-                                                                service</label>
-                                                            <ul
-                                                                class="list-unstyled request-a-pickup__tab-content-size-list ">
+                    <!--    <div class="request-a-pickup__tab-content">-->
+                    <!--        <div class="request-a-pickup__tab-content-form-box">-->
+                    <!--            <form class="request-a-pickup__tab-content-form" method="post" action="register4.php">-->
+                    <!--                <div class="row">-->
+                    <!--                    <p class="request-a-pickup__tab-content-text-box" style="padding-bottom:10px;">-->
+                    <!--                        New Users can fill in the form and register for the service.</p>-->
+                                        <!--<div class="col-xl-6">-->
+                                        <!--    <div class="request-a-pickup__tab-content-form-left">-->
+                                        <!--        <div class="row">-->
+                                        <!--            <div class="col-xl-6">-->
+                                        <!--                <div class="request-a-pickup__tab-content-input-box">-->
+                                        <!--                    <input id="firstname_single" type="text"-->
+                                        <!--                        placeholder="First Name*" name="firstname" required>-->
+                                        <!--                </div>-->
+                                        <!--            </div>-->
+                                        <!--            <div class="col-xl-6">-->
+                                        <!--                <div class="request-a-pickup__tab-content-input-box">-->
+                                        <!--                    <input id="lastname_single" type="text"-->
+                                        <!--                        placeholder="Last Name*" name="lname" required>-->
+                                        <!--                </div>-->
+                                        <!--            </div>-->
+                                        <!--            <div class="col-xl-12">-->
+                                        <!--                <div class="request-a-pickup__tab-content-input-box">-->
+                                        <!--                    <input id="emailAddress_single" type="email"-->
+                                        <!--                        placeholder="Email Address*" name="email" required>-->
+                                        <!--                </div>-->
+                                        <!--            </div>-->
+                                        <!--            <div class="col-xl-12">-->
+                                        <!--                <div class="request-a-pickup__tab-content-input-box">-->
+                                        <!--                    <input id="mobileNumber_single" type="text"-->
+                                        <!--                        placeholder="Secondary Phone No*" maxlength="10" minlength="10" name="number" required>-->
+                                        <!--                </div>-->
+                                        <!--            </div>-->
+                                        <!--            <div class="col-xl-12">-->
+                                        <!--                <div class="request-a-pickup__tab-content-size-box">-->
+                                        <!--                    <label>Select the categories of waste to be handled in your-->
+                                        <!--                        service</label>-->
+                                        <!--                    <ul-->
+                                        <!--                        class="list-unstyled request-a-pickup__tab-content-size-list ">-->
 
-                                                                <li>
-                                                                    <input type="checkbox" name="myCheck" value="wet"
-                                                                        id="option_5" class="checked">
-                                                                    <label for="option_5"><span></span>Wet</label>
-                                                                </li>
-                                                                <li>
-                                                                    <input type="checkbox" name="myCheck1" value="dry"
-                                                                        id="option_6" class="checked">
-                                                                    <label for="option_6"><span></span>Dry</label>
-                                                                </li>
-                                                                <!-- <label id="message" style="padding-left:10px;color:"></label> -->
+                                        <!--                        <li>-->
+                                        <!--                            <input type="checkbox" name="myCheck" value="wet"-->
+                                        <!--                                id="option_5" class=checked-->
+                                        <!--                                ">-->
+                                        <!--                            <label for="option_5"><span></span>Wet</label>-->
+                                        <!--                        </li>-->
+                                        <!--                        <li>-->
+                                        <!--                            <input type="checkbox" name="myCheck1" value="dry"-->
+                                        <!--                                id="option_6" class=checked-->
+                                        <!--                                " >-->
+                                        <!--                            <label for="option_6"><span></span>Dry</label>-->
+                                        <!--                        </li>-->
                                                                 <!-- <div id="demo"></div> -->
-                                                            </ul>
-                                                        </div>
-                                                    </div>
+                                        <!--                    </ul>-->
+                                        <!--                </div>-->
+                                        <!--            </div>-->
 
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6">
-                                            <div class="request-a-pickup__tab-content-form-right">
-                                                <div class="row">
-                                                    <div class="col-xl-12">
-                                                        <div class="request-a-pickup__tab-content-input-box request-a-pickup__tab-content-brief-box"
-                                                            style="height: 156px;">
-                                                            <textarea id="address_single" placeholder="Full Address"
-                                                                name="address" required></textarea>
-                                                        </div>
-                                                    </div>
+                                        <!--        </div>-->
+                                        <!--    </div>-->
+                                        <!--</div>-->
+                    <!--                    <div class="col-xl-6">-->
+                    <!--                        <div class="request-a-pickup__tab-content-form-right">-->
+                    <!--                            <div class="row">-->
+                    <!--                                <div class="col-xl-12">-->
+                    <!--                                    <div class="request-a-pickup__tab-content-input-box request-a-pickup__tab-content-brief-box"-->
+                    <!--                                        style="height: 156px;">-->
+                    <!--                                        <textarea id="address_single" placeholder="Full Address"-->
+                    <!--                                            name="address" required></textarea>-->
+                    <!--                                    </div>-->
+                    <!--                                </div>-->
 
-                                                    <div class="col-xl-12">
-                                                        <div class="request-a-pickup__tab-content-input-box">
-                                                            <input id="postCode_single" type="text" maxlength="6" minlength="6"
-                                                                placeholder="Post Code*" name="pincode" required>
-                                                        </div>
-                                                    </div>
-                                                    <!-- <div class="col-xl-12">
-                                                        <div class="request-a-pickup__tab-content-input-box">
-                                                            <p id="amount_single"></p>
-                                                        </div>
-                                                    </div> -->
-                                                    <!-- <div class="col-xl-12"
-                                                        style="margin-top: -31px;margin-bottom: 20px;">
+                    <!--                                <div class="col-xl-12">-->
+                    <!--                                    <div class="request-a-pickup__tab-content-input-box">-->
+                    <!--                                        <input id="postCode_single" type="text" maxlength="6" minlength="6"-->
+                    <!--                                            placeholder="Post Code*" name="pincode" required>-->
+                    <!--                                    </div>-->
+                    <!--                                </div>-->
+                    <!--                                <div class="col-xl-12">-->
+                    <!--                                    <div class="request-a-pickup__tab-content-input-box">-->
+                                                            <!-- <p id="amount_single"></p> -->
+                    <!--                                    </div>-->
+                    <!--                                </div>-->
+                    <!--                                <div class="col-xl-12"-->
+                    <!--                                    style="margin-top: -31px;margin-bottom: 20px;">-->
 
-                                                        <div style="text-align:right;">
-                                                            <button type="button"
-                                                                class="thm-btn request-a-pickup__tab-content-btn" style="padding: 0px;padding-left: 3px;padding-right: 3px;
-                                                                font-weight: 300; font-size: 13px;"><span
-                                                                    class="icon-placeholder"></span> Get
-                                                                Location</button>
-                                                        </div>
-                                                    </div> -->
+                    <!--                                    <div style="text-align:right;">-->
+                                                            <!--<button type="button"-->
+                                                            <!--    class="thm-btn request-a-pickup__tab-content-btn" style="padding: 0px;padding-left: 3px;padding-right: 3px;-->
+                                                            <!--    font-weight: 300; font-size: 13px;"><span-->
+                                                            <!--        class="icon-placeholder"></span> Get-->
+                                                            <!--    Location</button>-->
+                    <!--                                    </div>-->
+                    <!--                                </div>-->
 
-                                                    <div class="request-a-pickup__tab-content-extra">
-                                                        <ul
-                                                            class="list-unstyled request-a-pickup__tab-content-extra-list">
-                                                            <li>
-                                                                <input type="checkbox" name="declare"
-                                                                    id="extra_weight_2" required>
-                                                                <label for="extra_weight_2"><span></span>I here by
-                                                                    declare all the details are valid, and wish to
-                                                                    proceed.</label>
-                                                            </li>
-                                                            <li style="text-align: right;">
-                                                                <label id="check2" for="extra_weight_2" style="font-size: 28px;color: #0076a1;font-weight: bold;"><span></span>Total : ₹0/-<br><span style="font-weight: 600;font-size: 14px;color: #7c7c7c;">Inclusive of 18% GST</span></label>
-                                                            </li>
-                                                            <input type="hidden" id="total_amount2" name="total_amount" value="0">
-                                                            <input type="hidden" name="servicetype" value="Individual">
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-xl-12">
+                    <!--                                <div class="request-a-pickup__tab-content-extra">-->
+                    <!--                                    <ul-->
+                    <!--                                        class="list-unstyled request-a-pickup__tab-content-extra-list">-->
+                    <!--                                        <li>-->
+                    <!--                                            <input type="checkbox" name="declare"-->
+                    <!--                                                id="extra_weight_2" required>-->
+                    <!--                                            <label for="extra_weight_2"><span></span>I here by-->
+                    <!--                                                declare all the details are valid, and wish to-->
+                    <!--                                                proceed.</label>-->
+                    <!--                                        </li>-->
+                    <!--                                        <li style="text-align: right;">-->
+                    <!--                                            <label id="check2" for="extra_weight_2" style="font-size: 28px;color: #0076a1;font-weight: bold;"><span></span>Total : ₹0/-<br><span style="font-weight: 600;font-size: 14px;color: #7c7c7c;">Inclusive of 18% GST</span></label>-->
+                    <!--                                        </li>-->
+                    <!--                                        <input type="hidden" id="total_amount2" name="total_amount" value="0">-->
+                    <!--                                        <input type="hidden" name="servicetype" value="Individual">-->
+                    <!--                                    </ul>-->
+                    <!--                                </div>-->
+                    <!--                                <div class="col-xl-12">-->
 
-                                                        <div class="request-a-pickup__tab-content-btn-box"
-                                                            style="text-align:right;">
-                                                            <button type="submit" id="btn-proceed"
-                                                                class="thm-btn request-a-pickup__tab-content-btn"
-                                                                onclick="Postdata()">Proceed ></button>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                    <!--                                    <div class="request-a-pickup__tab-content-btn-box"-->
+                    <!--                                        style="text-align:right;">-->
+                    <!--                                        <button type="submit" id="btn-proceed"-->
+                    <!--                                            class="thm-btn request-a-pickup__tab-content-btn"-->
+                    <!--                                            onclick="Postdata()">Proceed ></button>-->
+                    <!--                                    </div>-->
+                    <!--                                </div>-->
+                    <!--                            </div>-->
 
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+                    <!--                </div>-->
+                    <!--            </form>-->
+                    <!--        </div>-->
+                    <!--    </div>-->
 
-                    </div>
-                    <!--tab-->
-                    <div class="tab" id="appartment">
+                    <!-- </div>-->
+                    <!--tab -->
+                    <div class="tab active-tab" id="appartment">
 
                         <div class="request-a-pickup__tab-content">
                             <div class="request-a-pickup__tab-content-form-box">
@@ -258,25 +258,45 @@
                                                     </div>
                                                     <div class="col-xl-6">
                                                         <div class="request-a-pickup__tab-content-input-box">
-                                                            <input id="noofHouse_appartment" type="text" maxlength="3"
-                                                                placeholder="No of houses*" name="number" required>
+                                                            <input id="noofHouse_appartment1" type="text" maxlength="3"
+                                                                placeholder="No of houses (Wet)*" pattern="[0-9]*" name="number1" oninput="printvalue('noofHouse_appartment1')" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-6">
                                                         <div class="request-a-pickup__tab-content-size-box">
-                                                            <label style="line-height: 16px;" id="message2">Select the categories of
+                                                            <label style="line-height: 16px;">Select the categories of
                                                                 waste to be handled in your service</label>
                                                             <ul
                                                                 class="list-unstyled request-a-pickup__tab-content-size-list">
 
                                                                 <li>
-                                                                    <input type="checkbox" name="myCheck" value="Wet"
+                                                                    <input type="checkbox" name="myCheck" value="wet"
                                                                         id="option_7" class=checked
                                                                         ">
                                                                     <label for="option_7"><span></span>Wet</label>
                                                                 </li>
+                                                                
+                                                                <!-- <div id="demo"></div> -->
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-6">
+                                                        <div class="request-a-pickup__tab-content-input-box">
+                                                        
+                                                            <input id="noofHouse_appartment2" type="text" maxlength="3"
+                                                                placeholder="No of houses (Dry)*" pattern="[0-9]*" name="number2" oninput="printvalue('noofHouse_appartment2')" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-6">
+                                                        <div class="request-a-pickup__tab-content-size-box">
+                                                            <label style="line-height: 16px;">Select the categories of
+                                                                waste to be handled in your service</label>
+                                                            <ul
+                                                                class="list-unstyled request-a-pickup__tab-content-size-list">
+
+                                                                
                                                                 <li>
-                                                                    <input type="checkbox" name="myCheck1" value="Dry"
+                                                                    <input type="checkbox" name="myCheck1" value="dry"
                                                                         id="option_8" class=checked
                                                                         ">
                                                                     <label for="option_8"><span></span>Dry</label>
@@ -303,15 +323,15 @@
                                                     <div class="col-xl-12">
                                                         <div class="request-a-pickup__tab-content-input-box">
                                                             <input id="postCode_appartment" type="text"
-                                                                placeholder="Post Code*" name="pincode" maxlength="6" minlength="6" required>
+                                                                placeholder="Post Code*" pattern="[0-9]*" name="pincode" maxlength="6" minlength="6" required>
                                                         </div>
                                                     </div>
-                                                    <!-- <div class="col-xl-12">
+                                                    <div class="col-xl-12">
                                                         <div class="request-a-pickup__tab-content-input-box">
-                                                            <p id="amount_appartments"></p>
+                                                            <!-- <p id="amount_appartments"></p> -->
                                                         </div>
-                                                    </div> -->
-                                                    <!-- <div class="col-xl-12"
+                                                    </div>
+                                                    <div class="col-xl-12"
                                                         style="margin-top: -31px;margin-bottom: 20px;">
 
                                                         <div style="text-align:right;">
@@ -321,7 +341,7 @@
                                                                     class="icon-placeholder"></span> Get
                                                                 Location</button>
                                                         </div>
-                                                    </div> -->
+                                                    </div>
 
                                                     <div class="request-a-pickup__tab-content-extra">
                                                         <ul
@@ -398,19 +418,26 @@
                                                     </div>
                                                     <div class="col-xl-12">
                                                         <div class="request-a-pickup__tab-content-size-box">
-                                                            <label style="line-height: 16px;" id="message3">Select the categories of
-                                                                waste to be handled in your service</label>
+                                                            <label style="line-height: 16px;">Select the categories of
+                                                                waste to be handled in your service</label><br>
+                                                                <p><b style="color: #0076a1; font-weight: bolder; font-size: 22px;">Rs.3000/-</b> will be charged as registration fee for the service</p>
                                                             <ul
                                                                 class="list-unstyled request-a-pickup__tab-content-size-list">
 
                                                                 <li>
                                                                     <input type="checkbox" id="option_9" name="myCheck" value="Organic">
                                                                     <label for="option_9"><span></span>Organic</label>
+                                                                    <div class="request-a-pickup__tab-content-input-box">
+                                                                        <input id="noofHouse_commercial1" type="text" pattern="[0-9]*" maxlength="3" placeholder="No of Green Bins*" name="number3" oninput="printvalue('noofHouse_commercial1')" required>
+                                                                    </div>
                                                                     <p style="font-size: 12px;line-height: 14px;">Organic per bin <b style="color: #0076a1;">Rs.100/- + 18% GST</b> (60 liter Green bin)</p>
                                                                 </li>
                                                                 <li>
                                                                     <input type="checkbox" id="option_10" name="myCheck1" value="Dry">
                                                                     <label for="option_10"><span></span>Dry</label>
+                                                                    <div class="request-a-pickup__tab-content-input-box">
+                                                                        <input id="noofHouse_commercial2" type="text" pattern="[0-9]*" maxlength="3" placeholder="No of White/Blue Bags*" name="number4" oninput="printvalue('noofHouse_commercial2')" required>
+                                                                    </div>
                                                                     <p style="font-size: 12px;line-height: 14px;">Dry per bag <b style="color: #0076a1;">Rs.50/- + 18% GST</b> (100 liter White/Blue bag)</p>
                                                                 </li>
                                                                 <!-- <div id="demo"></div> -->
@@ -435,15 +462,15 @@
                                                     <div class="col-xl-12">
                                                         <div class="request-a-pickup__tab-content-input-box">
                                                             <input id="postCode_commercial" type="text"
-                                                                placeholder="Post Code*" name="pincode" maxlength="6" minlength="6" required>
+                                                                placeholder="Post Code*" pattern="[0-9]*" name="pincode" maxlength="6" minlength="6" required>
                                                         </div>
                                                     </div>
-                                                    <!-- <div class="col-xl-12">
+                                                    <div class="col-xl-12">
                                                         <div class="request-a-pickup__tab-content-input-box">
-                                                            <p id="amount_commercial"></p>
+                                                            <!-- <p id="amount_commercial"></p> -->
                                                         </div>
-                                                    </div> -->
-                                                    <!-- <div class="col-xl-12"
+                                                    </div>
+                                                    <div class="col-xl-12"
                                                         style="margin-top: -31px;margin-bottom: 20px;">
 
                                                         <div style="text-align:right;">
@@ -453,7 +480,7 @@
                                                                     class="icon-placeholder"></span> Get
                                                                 Location</button>
                                                         </div>
-                                                    </div> -->
+                                                    </div>
 
                                                     <div class="request-a-pickup__tab-content-extra">
                                                         <ul
@@ -466,7 +493,7 @@
                                                                     proceed.</label>
                                                             </li>
                                                             <li style="text-align: right;">
-                                                                <label id="total_label" for="extra_weight_2" style="font-size: 28px;color: #0076a1;font-weight: bold;"><span></span>Total : ₹0/-<br><span style="font-weight: 600;font-size: 14px;color: #7c7c7c;">Inclusive of 18% GST</span></label>
+                                                                <label id="total_label" for="extra_weight_2" style="font-size: 28px;color: #0076a1;font-weight: bold;"><span></span>Total : ₹3000/-<br><span style="font-weight: 600;font-size: 14px;color: #7c7c7c;">Inclusive of 18% GST</span></label>
                                                             </li>
                                                             <input type="hidden" id="total_amount" name="total_amount" value="0">
                                                             <input type="hidden" name="servicetype" value="Commercial">
@@ -693,20 +720,6 @@
 
 </body>
 <script>
-    // function myFunction() {
-
-    //     var checkboxes = document.querySelectorAll('input[name="myCheck"]:checked'),
-    //         values = [],
-    //         len = checkboxes.length, i;
-
-    //     for (i = 0; i < len; i++) {
-    //         values.push(checkboxes[i].value);
-    //     }
-
-    //     document.getElementById("demo").innerHTML = values.join(',');
-    // }
-</script>
-<script>
     
     var loc = localStorage.getItem('3eab60ec988c461f0cfc0e6ed6ed');
     var cache = JSON.parse(atob(loc));
@@ -733,42 +746,14 @@
         $("#fullname_commercial").val(cache.name);
         $("#mobileNumber_single").val(cache.phone);
     });
-    var phone = cache.phone;
-    function Postdata() {
 
-        if(totalvas == undefined || totalvas == 0){
-            if ($("#servicetype .active-btn").attr("data-type") == "Single") {
-                const inputField = document.getElementById("extra_weight_2"); // Replace with your actual input field ID
-                if (inputField) {
-                    inputField.checked = false;
-                }
-                const messageElement = document.getElementById("message1"); // Replace with your actual message element ID
-                // messageElement.textContent = "Please Select Your Waste Type";
-                messageElement.style.color = "red";
-            }
-            else if ($("#servicetype .active-btn").attr("data-type") == "Appartment") {
-                const inputField = document.getElementById("app_extra_weight"); // Replace with your actual input field ID
-                if (inputField) {
-                    inputField.checked = false;
-                }
-                const messageElement = document.getElementById("message2"); // Replace with your actual message element ID
-                // messageElement.textContent = "Please Select Your Waste Type";
-                messageElement.style.color = "red";
-            }else {
-                const inputField = document.getElementById("comm_extra_weight"); // Replace with your actual input field ID
-                if (inputField) {
-                    inputField.checked = false;
-                }
-                const messageElement = document.getElementById("message3"); // Replace with your actual message element ID
-                // messageElement.textContent = "Please Select Your Waste Type";
-                messageElement.style.color = "red";
-            }
-        }
+    var phone = cache.phone;
+    function Postdata() {debugger;
 
         var model = null;
 
         if ($("#servicetype .active-btn").attr("data-type") == "Single") {
-            // 
+
             model = {
                 firstname: document.getElementById('firstname_single').value,
                 lastname: document.getElementById('lastname_single').value,
@@ -790,7 +775,7 @@
                 name: document.getElementById('name_appartment').value,
                 designation: document.getElementById('designation_appartment').value,
                 mobileNumber: phone,
-                noofHouse: document.getElementById('noofHouse_appartment').value,
+                // noofHouse: document.getElementById('noofHouse_appartment').value,
                 emailAddress: document.getElementById('emailAddress_appartment').value,
                 servicetype: $("#servicetype .active-btn").attr("data-type"),
                 orderid: Math.random().toString().slice(2, 11),
@@ -802,7 +787,7 @@
             };
         }
         else {
-            // 
+
             model = {
                 firstname: document.getElementById('fullname_commercial').value,
                 name: document.getElementById('name_commercial').value,
@@ -827,6 +812,7 @@
 
         // Set the orderId as a cookie
         document.cookie = "orderId=" + orderIdss;
+        
 
         
         // ... (other properties)
@@ -851,7 +837,60 @@
 
     }
 </script>
-
+<script>
+    var noofHouse1 = 0;
+    var noofHouse2 = 0;
+    var noofHouse3 = 0;
+    var noofHouse4 = 0;
+    function printvalue(id){
+        if(id == "noofHouse_appartment1"){
+            var noofHouses1 = document.getElementById(id).value;
+            noofHouse1 = parseInt(noofHouses1);
+            if(noofHouse1 == 0 || noofHouses1 == ''){
+                organicCheckbox1.checked = false;
+                updateTotal1();
+            }
+            else{
+                organicCheckbox1.checked = true;
+                updateTotal1();
+            }
+        }else if(id == "noofHouse_appartment2"){
+            var noofHouses2 = document.getElementById(id).value;
+            noofHouse2 = parseInt(noofHouses2);
+            if(noofHouse2 == 0 || noofHouses2 == ''){
+                dryCheckbox1.checked = false;
+                updateTotal1();
+            }
+            else{
+                dryCheckbox1.checked = true;
+                updateTotal1();
+            }
+        }else if(id == "noofHouse_commercial1"){
+            var noofHouses3 = document.getElementById(id).value;
+            noofHouse3 = parseInt(noofHouses3);
+            if(noofHouse3 == 0 || noofHouses3 == ''){
+                organicCheckbox.checked = false;
+                updateTotal();
+            }
+            else{
+                organicCheckbox.checked = true;
+                updateTotal();
+            }
+        }else if(id == "noofHouse_commercial2"){
+            var noofHouses4 = document.getElementById(id).value;
+            noofHouse4 = parseInt(noofHouses4);
+            if(noofHouse4 == 0 || noofHouses4 == ''){
+                dryCheckbox.checked = false;
+                updateTotal();
+            }
+            else{
+                dryCheckbox.checked = true;
+                updateTotal();
+            }
+        }
+    }
+    
+</script>
 <script>
     const organicCheckbox = document.getElementById("option_9");
     const dryCheckbox = document.getElementById("option_10");
@@ -866,10 +905,11 @@
     const totalLabel2 = document.getElementById("check2");
     const totalAmountInput2 = document.getElementById("total_amount2");
 
+
     const organicPrice = 100; // Update with actual price
     const dryPrice = 50; // Update with actual price
     const gstRate = 0.18;
-    const organicPrice1 = 50; // Update with actual price
+    const organicPrice1 = 100; // Update with actual price
     const dryPrice1 = 50; // Update with actual price
     const gstRate1 = 0.18;
     const organicPrice2 = 50; // Update with actual price
@@ -884,52 +924,50 @@
     dryCheckbox2.addEventListener("change", updateTotal2);
     var totalvas;
     var type1;
-    // console.log(totalvas);
+
     function updateTotal() {
-        let total = 0;
+        let total = 3000;
 
         if (organicCheckbox.checked) {
-            total += organicPrice + organicPrice * gstRate;
+            total += noofHouse3 * (organicPrice + organicPrice * gstRate);
             type1 = "Organic";
         }
 
         if (dryCheckbox.checked) {
-            total += dryPrice + dryPrice * gstRate;
+            total += noofHouse4 * (dryPrice + dryPrice * gstRate);
             type1 = "Dry";
         }
 
         totalAmountInput.value = total.toFixed(2);
         var totalva = total.toFixed(2);
         totalvas = parseInt(totalva) ;
-        if(totalvas > 120){
-            type1 = "Organic,Dry"
+        if(organicCheckbox.checked && dryCheckbox.checked){
+            type1 = "Organic , Dry"
         }
-        // console.log(type1);
 
-        totalLabel.innerHTML = `<span></span>Total : ₹${total.toFixed(2)}/-<br><span style="font-weight: 600;font-size: 14px;color: #7c7c7c;">Inclusive of 18% GST</span>`;
+        totalLabel.innerHTML = `<span></span>Total : ₹${total}/-<br><span style="font-weight: 600;font-size: 14px;color: #7c7c7c;">Inclusive of 18% GST</span>`;
     }
     function updateTotal1() {
         let total = 0;
 
         if (organicCheckbox1.checked) {
-            total += organicPrice1 + organicPrice1 * gstRate1;
+            total += noofHouse1 * (organicPrice1 + organicPrice1 * gstRate1);
             type1 = "Wet";
         }
 
         if (dryCheckbox1.checked) {
-            total += dryPrice1 + dryPrice1 * gstRate1;
+            total += noofHouse2 * (dryPrice1 + dryPrice1 * gstRate1);
             type1 = "Dry";
         }
         totalAmountInput1.value = total.toFixed(2);
         var totalva = total.toFixed(2);
         totalvas = parseInt(totalva) ;
-        if(totalvas > 100){
-            type1 = "Wet,Dry"
+        if(organicCheckbox1.checked && dryCheckbox1.checked){
+            type1 = "Wet , Dry"
         }
-        // console.log(type1);
         
 
-        totalLabel1.innerHTML = `<span></span>Total : ₹${total.toFixed(2)}/-<br><span style="font-weight: 600;font-size: 14px;color: #7c7c7c;">Inclusive of 18% GST</span>`;
+        totalLabel1.innerHTML = `<span></span>Total : ₹${total}/-<br><span style="font-weight: 600;font-size: 14px;color: #7c7c7c;">Inclusive of 18% GST</span>`;
     }
     function updateTotal2() {
         let total = 0;
@@ -945,18 +983,15 @@
         }
         var totalva = total.toFixed(2);
         totalvas = parseInt(totalva) ;
-        if(totalvas > 100){
-            type1 = "Wet,Dry"
+        if(organicCheckbox2.checked && dryCheckbox2.checked){
+            type1 = "Wet , Dry"
         }
-        // console.log(type1);
+
         totalAmountInput2.value = total.toFixed(2);
-        // if (totalAmountInput2.value == ""){
 
-        // }
-
-        totalLabel2.innerHTML = `<span></span>Total : ₹${total.toFixed(2)}/-<br><span style="font-weight: 600;font-size: 14px;color: #7c7c7c;">Inclusive of 18% GST</span>`;
+        totalLabel2.innerHTML = `<span></span>Total : ₹${total}/-<br><span style="font-weight: 600;font-size: 14px;color: #7c7c7c;">Inclusive of 18% GST</span>`;
     }
-    // console.log(orderId);
+
 
 //     // Retrieve the encoded data from local storage
 // var encodedData = localStorage.getItem('3eab60ec988c461f0cfc0e6ed6ed');
@@ -988,6 +1023,5 @@
 //         }
 //     });
 </script>
-
 
 </html>
