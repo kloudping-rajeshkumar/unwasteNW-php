@@ -3,6 +3,12 @@
 <?php include 'head.php'; ?>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        var loc = localStorage.getItem('3eab60ec988c461f0cfc0e6ed6ed');
+
+        if (loc == null) {
+            // Redirect to another URL
+            window.location.href = 'register.php';
+        }
         var loc1 = localStorage.getItem('3eab60ec988c461f0cfc0e6ed6ed1');
         var cache1 = JSON.parse(atob(loc1));
         var page = cache1.page;
@@ -15,8 +21,6 @@
         };
         let encoded1 = window.btoa(JSON.stringify(model1));
         localStorage.setItem('3eab60ec988c461f0cfc0e6ed6ed1', encoded1);
-        // location.href = 'register1.php';
-        // console.log(page);
         });
 </script>
 <style>
