@@ -223,7 +223,7 @@
 
                         <div class="request-a-pickup__tab-content">
                             <div class="request-a-pickup__tab-content-form-box">
-                                <form class="request-a-pickup__tab-content-form" method="post" action="register4.php">
+                                <form class="request-a-pickup__tab-content-form" id="appform" method="post" action="register4.php">
                                     <div class="row">
                                         <p class="request-a-pickup__tab-content-text-box" style="padding-bottom:10px;">
                                             New Users can fill in the form and register for the service.</p>
@@ -259,7 +259,7 @@
                                                     <div class="col-xl-6">
                                                         <div class="request-a-pickup__tab-content-input-box">
                                                             <input id="noofHouse_appartment1" type="text" maxlength="3"
-                                                                placeholder="No of houses (Wet)*" pattern="[0-9]*" name="number1" oninput="printvalue('noofHouse_appartment1')" required>
+                                                                placeholder="No of houses (Wet)*" pattern="[0-9]*" name="number1" oninput="printvalue('noofHouse_appartment1')">
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-6">
@@ -270,9 +270,7 @@
                                                                 class="list-unstyled request-a-pickup__tab-content-size-list">
 
                                                                 <li>
-                                                                    <input type="checkbox" name="myCheck" value="wet"
-                                                                        id="option_7" class=checked
-                                                                        ">
+                                                                    <input type="checkbox" name="myCheck" value="wet" id="option_7" class="checked" disabled>
                                                                     <label for="option_7"><span></span>Wet</label>
                                                                 </li>
                                                                 
@@ -284,7 +282,7 @@
                                                         <div class="request-a-pickup__tab-content-input-box">
                                                         
                                                             <input id="noofHouse_appartment2" type="text" maxlength="3"
-                                                                placeholder="No of houses (Dry)*" pattern="[0-9]*" name="number2" oninput="printvalue('noofHouse_appartment2')" required>
+                                                                placeholder="No of houses (Dry)*" pattern="[0-9]*" name="number2" oninput="printvalue('noofHouse_appartment2')">
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-6">
@@ -297,15 +295,15 @@
                                                                 
                                                                 <li>
                                                                     <input type="checkbox" name="myCheck1" value="dry"
-                                                                        id="option_8" class=checked
-                                                                        ">
+                                                                        id="option_8" class="checked
+                                                                        " disabled>
                                                                     <label for="option_8"><span></span>Dry</label>
                                                                 </li>
                                                                 <!-- <div id="demo"></div> -->
                                                             </ul>
                                                         </div>
                                                     </div>
-
+                                                    <span id="error3" class="error-message" style="color: red; display: none;">Required</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -347,11 +345,13 @@
                                                         <ul
                                                             class="list-unstyled request-a-pickup__tab-content-extra-list">
                                                             <li>
-                                                                <input type="checkbox" name="declareapp"
-                                                                    id="app_extra_weight" required>
+                                                                <input type="checkbox" name="declareapp" id="app_extra_weight" required>
                                                                 <label for="app_extra_weight"><span></span>I here by
                                                                     declare all the details are valid, and wish to
                                                                     proceed.</label>
+                                                                    <br>
+                                                                    <span id="error1" class="error-message" style="color: red; display: none;">Required</span>
+                                                                
                                                             </li>
                                                             <li style="text-align: right;">
                                                                 <label id="check1" for="extra_weight_2" style="font-size: 28px;color: #0076a1;font-weight: bold;"><span></span>Total : ₹0/-<br><span style="font-weight: 600;font-size: 14px;color: #7c7c7c;">Inclusive of 18% GST</span></label>
@@ -384,7 +384,7 @@
 
                         <div class="request-a-pickup__tab-content">
                             <div class="request-a-pickup__tab-content-form-box">
-                                <form class="request-a-pickup__tab-content-form" method="post" action="register4.php">
+                                <form class="request-a-pickup__tab-content-form" id="comform" method="post" action="register4.php">
                                     <div class="row">
                                         <p class="request-a-pickup__tab-content-text-box" style="padding-bottom:10px;">
                                             New Users can fill in the form and register for the service.</p>
@@ -425,21 +425,23 @@
                                                                 class="list-unstyled request-a-pickup__tab-content-size-list">
 
                                                                 <li>
-                                                                    <input type="checkbox" id="option_9" name="myCheck" value="Organic">
+                                                                    <input type="checkbox" id="option_9" name="myCheck" value="Organic" disabled>
                                                                     <label for="option_9"><span></span>Organic</label>
                                                                     <div class="request-a-pickup__tab-content-input-box">
-                                                                        <input id="noofHouse_commercial1" type="text" pattern="[0-9]*" maxlength="3" placeholder="No of Green Bins*" name="number3" oninput="printvalue('noofHouse_commercial1')" required>
+                                                                        <input id="noofHouse_commercial1" type="text" pattern="[0-9]*" maxlength="3" placeholder="No of Green Bins*" name="number3" oninput="printvalue('noofHouse_commercial1')">
                                                                     </div>
                                                                     <p style="font-size: 12px;line-height: 14px;">Organic per bin <b style="color: #0076a1;">Rs.100/- + 18% GST</b> (60 liter Green bin)</p>
                                                                 </li>
                                                                 <li>
-                                                                    <input type="checkbox" id="option_10" name="myCheck1" value="Dry">
+                                                                    <input type="checkbox" id="option_10" name="myCheck1" value="Dry" disabled>
                                                                     <label for="option_10"><span></span>Dry</label>
                                                                     <div class="request-a-pickup__tab-content-input-box">
-                                                                        <input id="noofHouse_commercial2" type="text" pattern="[0-9]*" maxlength="3" placeholder="No of White/Blue Bags*" name="number4" oninput="printvalue('noofHouse_commercial2')" required>
+                                                                        <input id="noofHouse_commercial2" type="text" pattern="[0-9]*" maxlength="3" placeholder="No of White/Blue Bags*" name="number4" oninput="printvalue('noofHouse_commercial2')">
                                                                     </div>
                                                                     <p style="font-size: 12px;line-height: 14px;">Dry per bag <b style="color: #0076a1;">Rs.50/- + 18% GST</b> (100 liter White/Blue bag)</p>
                                                                 </li>
+                                                                <br>
+                                                                <span id="error4" class="error-message" style="color: red; display: none;">Required</span>
                                                                 <!-- <div id="demo"></div> -->
                                                             </ul>
                                                         </div>
@@ -490,7 +492,7 @@
                                                                     id="comm_extra_weight" required>
                                                                 <label for="comm_extra_weight"><span></span>I here by
                                                                     declare all the details are valid, and wish to
-                                                                    proceed.</label>
+                                                                    proceed.</label><span id="error2" class="error-message" style="color: red; display: none;">Required</span>
                                                             </li>
                                                             <li style="text-align: right;">
                                                                 <label id="total_label" for="extra_weight_2" style="font-size: 28px;color: #0076a1;font-weight: bold;"><span></span>Total : ₹3000/-<br><span style="font-weight: 600;font-size: 14px;color: #7c7c7c;">Inclusive of 18% GST</span></label>
@@ -498,6 +500,7 @@
                                                             <input type="hidden" id="total_amount" name="total_amount" value="0">
                                                             <input type="hidden" name="servicetype" value="Commercial">
                                                         </ul>
+                                                        
                                                     </div>
                                                     <div class="col-xl-12">
 
@@ -748,7 +751,47 @@
     });
 
     var phone = cache.phone;
-    function Postdata() {debugger;
+    function Postdata() {
+        const errori1 = document.getElementById("app_extra_weight");
+        const error1 = document.getElementById("error1");
+        const errori2 = document.getElementById("comm_extra_weight");
+        const error2 = document.getElementById("error2");
+        const form = document.getElementById("comform");
+        const errori3 = document.getElementById("noofHouse_commercial1");
+        const errori4 = document.getElementById("noofHouse_commercial2");
+        const error4 = document.getElementById("error4");
+        const error3 = document.getElementById("error3");
+        const errori5 = document.getElementById("noofHouse_appartment1");
+        const errori6 = document.getElementById("noofHouse_appartment2");
+
+        if (document.getElementById("appartment").style.display === "none") {
+            error3.style.display = 'none';
+            error1.style.display = 'none';
+            if (errori2.checked) {
+                error2.style.display = 'none';
+            }else{
+                error2.style.display = 'block';
+            }
+            if (!errori3.value.trim() && !errori4.value.trim()) {
+                error4.style.display = 'block';
+            }else{
+                error4.style.display = 'none';
+            }
+        }else{
+            error2.style.display = 'none';
+            error4.style.display = 'none';
+            if (!errori5.value.trim() && !errori6.value.trim()) {
+                error3.style.display = 'block';
+            }else{
+                error3.style.display = 'none';
+            }
+
+            if (errori1.checked) {
+                error1.style.display = 'none';
+            }else{
+                error1.style.display = 'block';
+            }
+        }
 
         var model = null;
 
@@ -891,6 +934,48 @@
     }
     
 </script>
+
+<script>
+    const form = document.getElementById("comform");
+    const input1 = document.getElementById("noofHouse_commercial1");
+    const input2 = document.getElementById("noofHouse_commercial2");
+    const input3 = document.getElementById("option_9");
+    const input4 = document.getElementById("option_10");
+    const einput5 = document.getElementById("error4");
+
+    form.addEventListener("submit", function(event) {
+        if (!input1.value.trim() && !input2.value.trim()) {
+            event.preventDefault();
+        }
+        if (!input3.checked && !input4.checked) {
+            event.preventDefault();
+            einput5.style.display = 'block';
+        }else{
+            einput5.style.display = 'none';
+        }
+        
+    });
+</script>
+<script>
+    const appform = document.getElementById("appform");
+    const appinput1 = document.getElementById("noofHouse_appartment1");
+    const appinput2 = document.getElementById("noofHouse_appartment2");
+    const appinput3 = document.getElementById("option_7");
+    const appinput4 = document.getElementById("option_8");
+    const eappinput5 = document.getElementById("error3");
+
+    appform.addEventListener("submit", function(event) {
+        if (!appinput1.value.trim() && !appinput2.value.trim()) {
+            event.preventDefault();
+        }
+        if (!appinput3.checked && !appinput4.checked) {
+            event.preventDefault();
+            eappinput5.style.display = 'block';
+        }else{
+            eappinput5.style.display = 'none';
+        }
+    });
+</script>
 <script>
     const organicCheckbox = document.getElementById("option_9");
     const dryCheckbox = document.getElementById("option_10");
@@ -937,8 +1022,12 @@
             total += noofHouse4 * (dryPrice + dryPrice * gstRate);
             type1 = "Dry";
         }
-
         totalAmountInput.value = total.toFixed(2);
+        if (isNaN(total)) {
+            total = 3000;
+        }else{
+            total = total;
+        }
         var totalva = total.toFixed(2);
         totalvas = parseInt(totalva) ;
         if(organicCheckbox.checked && dryCheckbox.checked){
@@ -960,13 +1049,17 @@
             type1 = "Dry";
         }
         totalAmountInput1.value = total.toFixed(2);
+        if (isNaN(total)) {
+            total = 0;
+        }else{
+            total = total;
+        }
         var totalva = total.toFixed(2);
         totalvas = parseInt(totalva) ;
         if(organicCheckbox1.checked && dryCheckbox1.checked){
             type1 = "Wet , Dry"
         }
         
-
         totalLabel1.innerHTML = `<span></span>Total : ₹${total}/-<br><span style="font-weight: 600;font-size: 14px;color: #7c7c7c;">Inclusive of 18% GST</span>`;
     }
     function updateTotal2() {
