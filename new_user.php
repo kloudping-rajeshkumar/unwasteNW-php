@@ -1,8 +1,8 @@
 <title>Razorpay Payment Gateway Integration in PHP</title>
 <script>
-    // var loc = localStorage.getItem('3eab60ec988c461f0cfc0e6ed6ed');
-    // var cache = JSON.parse(atob(loc));
-    // var orderIdss = cache;
+    var loc = localStorage.getItem('3eab60ec988c461f0cfc0e6ed6ed');
+    var cache = JSON.parse(atob(loc));
+    var orderIdss = cache;
     // console.log(orderIdss);
     document.addEventListener('DOMContentLoaded', function() {
         var loc = localStorage.getItem('3eab60ec988c461f0cfc0e6ed6ed');
@@ -15,9 +15,9 @@
         var cache1 = JSON.parse(atob(loc1));
         var page = cache1.page;
         // console.log(page);
-        if (page !== 3) {
-            window.location.href = 'register.php';
-        }
+        // if (page !== 3) {
+        //     window.location.href = 'register.php';
+        // }
         var model1 = {
             page: 4,
         };

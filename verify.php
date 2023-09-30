@@ -176,7 +176,7 @@
                   line-height: 1.55em;width: 29.33333333%;"><span id="servicetype"></span></td>
                                             <td class="tm_width_7" style="border-top: 1px solid #dbdfea;padding: 10px 15px;
                   line-height: 1.55em;width: 29.33333333%;">
-                  ' . $mycheck . ' ' . $mycheck1 . '
+                  <span id="wastetype"></span>
                                             </td>
                                             <td class="tm_width_2" style="border-top: 1px solid #dbdfea;padding: 10px 10px;
                 line-height: 1.55em;width: 16.66666667%;">
@@ -189,7 +189,7 @@
                                         </tr>
                                         <tr>
                                         <td class="tm_width_7" style="border-top: 1px solid #dbdfea;padding: 10px 15px;
-                  line-height: 1.55em;width: 29.33333333%;"><span id="servicetype"></span></td>
+                  line-height: 1.55em;width: 29.33333333%;"></td>
                                             <td class="tm_width_7" style="border-top: 1px solid #dbdfea;  padding: 10px 15px;
                         line-height: 1.55em;width: 29.33333333%;">
                                             </td>
@@ -202,7 +202,7 @@
                                         </tr>
                                         <tr>
                                         <td class="tm_width_7" style="border-top: 1px solid #dbdfea;padding: 10px 15px;
-                  line-height: 1.55em;width: 29.33333333%;"><span id="servicetype"></span></td>
+                  line-height: 1.55em;width: 29.33333333%;"></td>
                                             <td class="tm_width_7" style="border-top: 1px solid #dbdfea; padding: 10px 15px;
                   line-height: 1.55em;width: 29.33333333%;">
                                             </td>
@@ -213,7 +213,7 @@
                                         </tr>
                                         <tr>
                                         <td class="tm_width_7" style="border-top: 1px solid #dbdfea;padding: 10px 15px;
-                  line-height: 1.55em;width: 29.33333333%;"><span id="servicetype"></span></td>
+                  line-height: 1.55em;width: 29.33333333%;"></td>
                                             <td class="tm_width_7" style="border-top: 1px solid #dbdfea;padding: 10px 15px;line-height: 1.55em;width: 29.33333333%;">
                                             </td>
                                             <td class="tm_width_2" style="border-top: 1px solid #dbdfea;padding: 10px 15px;
@@ -225,7 +225,7 @@
                                         </tr>
                                         <tr>
                                         <td class="tm_width_7" style="border-top: 1px solid #dbdfea;padding: 10px 15px;
-                  line-height: 1.55em;width: 29.33333333%;"><span id="servicetype"></span></td>
+                  line-height: 1.55em;width: 29.33333333%;"></td>
                                             <td class="tm_width_7" style="border-top: 1px solid #dbdfea;padding: 10px 15px;line-height: 1.55em;width: 29.33333333%;">
                                             </td>
                                             <td class="tm_width_2" style="border-top: 1px solid #dbdfea;padding: 10px 15px;
@@ -409,7 +409,6 @@
         ?>
 
     <script>
-        // alert("testr");
         document.addEventListener('DOMContentLoaded', function() {
         var loc = localStorage.getItem('3eab60ec988c461f0cfc0e6ed6ed');
 
@@ -433,6 +432,7 @@
             $("#mobileNumber").text(cache.mobileNumber);
             $("#emailAddress").text(cache.emailAddress);
             $("#servicetype").text(cache.servicetype);
+            $("#wastetype").text(cache.wastetype);
             $("#orderid").text(cache.orderid);
             $("#amount").text(parseInt(cache.amount) / 100);
             $("#total").text(parseInt(cache.amount) / 100);

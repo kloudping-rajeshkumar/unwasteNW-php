@@ -74,7 +74,7 @@ if (isset($_COOKIE['lname'])) {
         <!--Request A Pickup Top End-->
 
         <!--Request A Pickup Start-->
-        <section class="project-details" style="text-align: center;padding-top: 160px;padding-bottom:140px;">
+        <?php /* ?> <section class="project-details" style="text-align: center;padding-top: 160px;padding-bottom:140px;">
             <div class="container">
                 <div class="project-details__top">
                     <div class="row">
@@ -174,8 +174,190 @@ if (isset($_COOKIE['lname'])) {
                     </div>
                 </div>
             </div>
-        </section>
+        </section> <?php */ ?>
         <!--Request A Pickup End-->
+        <section id="appartment" class="project-details" style="text-align: center;padding-top: 160px;padding-bottom:140px;">
+            <div class="container">
+                <div class="project-details__top">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="project-details__title-box">
+                                <div class="project-details__title-left">
+                                    <h2>Service Agreement</h2>
+                                </div>
+                            </div>
+                            <div class="project-details__img-box" style="padding-bottom: 0px;">
+                                <img src="assets/images/service.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-details__content"
+                        style="padding-top:40px; padding-left: 10px; padding-right: 10px; padding-bottom: 10px; border: 1px solid #e6e6e6; margin-top: 0px; border-radius:3px;">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="project-details__content-left">
+                                    <p class="project-details__content-text-1" style="text-align:left;">The following service agreement is entered into between : </p>
+                                    <p class="project-details__content-text-1" style="text-align:left;"><b>1.	ND Logistics Private Limited, </b>19/33, Krishnaswamy Nagar, 50 Feet Road,Ramanathapuram, Coimbatore 641 045.<br> GST No. 33AAGCN5409B1ZX,
+                                    PAN No. AAGCN5409B.</p>
+                                    <h3>and</h3>
+                                    <p class="project-details__content-text-2" style="text-align:left;"><b>2. </b>
+                                    <?php if (isset($_COOKIE['fname'])) {
+                                                echo "$fname";
+                                            } ?>&nbsp;
+                                        <?php if (isset($_COOKIE['lname'])) {
+                                                echo "$lname";
+                                            } ?> <span
+                                            style="font-weight:400;color:#878986;">from</span>
+                                            <?php if (isset($_COOKIE['address'])) {
+                                                echo "$address";
+                                            } ?> - <?php if (isset($_COOKIE['pincode'])) {
+                                                echo "$pincode";
+                                            } ?> <span
+                                            style="font-weight:400;color:#878986;">,Coimbatore.<br>on the 2023 of year.</span>
+                                    </p>
+                                    <p class="project-details__content-text-3" style="text-align:left;"><b>ND Logistics Private Limited (NDL)</b> will provide waste management service within the framework of</p>
+                                    <p class="project-details__content-text-3" style="text-align:left;">
+                                    <ul style="text-align:left;">
+                                        <li>Provide logistics services to pick up segregated waste from Monday through Saturday. </li>
+                                        <li>Only waste packed in bins(organic) and bags(dry) will be transported.</li>
+                                        <li>ND Logistics Private Limited is committed, empanelled and authorised to handle ONLY SEGREGATED WASTE. In case of mixed waste being collected and kept for pickup, NDL will send quality reports on the matter, for first 3 instances, and if no action is taken by the community to correct the same, pickup of waste will be stopped.</li>
+                                        <li>Logistics calendar will be shared with community and any unexpected break in service will be communicated. </li>
+                                        <li>The pickup timing will be communicated by email, before the day of starting services. Timings may vary based on the traffic situation in the city.  Also, any change in vehicle route will also be communicated.</li>
+                                    </ul>
+                                    </p>
+                                    <p class="project-details__content-text-2" style="text-align:left;">
+										<b style="color:black"><?php if (isset($_COOKIE['fname'])) {
+                                                echo "$fname";
+                                            } ?>'s responsibilities will comprise of</b>
+                                    </p>
+									
+                                    <p class="project-details__content-text-3" style="text-align:left;">
+                                    <ul style="text-align:left;">
+                                        <li> Ensuring source segregation at all waste generation points. </li>
+                                        <li>Provide required infrastructure to facilitate segregation (green bin, red bin and blue bag) and collection (pushcarts, bins, brush, bags, gloves and mask) </li>
+                                        <li>Ensure collection of waste, using collection kit, as per the guidelines given by NDL. This will avoid mixed waste being collected. </li>
+                                        <li>Keep waste ready by 10 am, packed in bins(organic)(to be kept covered) and bags(dry waste)(packed and tied), at the pickup point, as close to the gate as possible. All Waste will be packed in bins and bags as required. Pickup point should be within the premises. </li>
+                                        <li>Loading help to be given, to load waste, in the vehicle. </li>
+                                        <li>Waste that is generated and segregated by residents must not be disposed outside the premises. </li>
+                                    </ul>
+                                    </p>
+									<br>
+                                    <p class="project-details__content-text-3" style="text-align:left;"><b>Waste Pickup Clause</b><br><b>Organic waste</b> - Food, Vegetable peels, Fruits & Flowers. Such waste has to be stored in Green Bins.<br>
+									<b>Dry waste</b> - plastic, papers, wood, metal waste packed in Blue bags. Bottles has to be kept separately and given.<br>
+									<b>Sanitary waste</b> - is unhygenic and bio hazardous that cannot be recycled such as Sanitary Napkins, Diapers, Hair, Blades, Injection and sharp items. These wastes has to be properly wrapped and marked X, kept  in Red bins.<br>
+									The above mentioned waste should not be mixed with one another and if found mixed will not be picked.<br>
+									<br><b>Financials and other terms <b><br></p>
+									<br>
+                                    <p class="project-details__content-text-3" style="text-align:left;"><b>></b> 1.Pickup charges  : Rs.100/- per house per month excluding GST 18%, payable as monthly advance basis. 
+									i.e. Rs.100 X  100 houses  = Rs.10,000/- + GST.
+									</p>
+                                    <p class="project-details__content-text-3" style="text-align:left;"><b>></b>2.In case of non-receipt of payment within the due date (5th of the every month), the pickup services will be stopped.</p>
+                                    <p class="project-details__content-text-3" style="text-align:left;"><b>></b> 3. The agreement can be terminated by either party on service of ONE month’s notice or on mutual agreement, once all dues from both sides have settled. This agreement is deemed to be extended unless any request for changes</p>
+                                    <br><br>
+									<p style="display: flex;justify-content: space-between;"><b>For ND Logistics Private Limited<br>Authorised Signatory</b><b><?php if (isset($_COOKIE['fname'])) {
+                                                echo "$fname";
+                                            } ?><br>Authorised Signatory</b></p><br>
+                                    <div class="request-a-pickup__tab-content-btn-box" style="text-align:center;">
+                                        <button id="rzp-button1" type="submit"
+                                            class="thm-btn request-a-pickup__tab-content-btn">Pay Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+		<section id="commercial" class="project-details" style="text-align: center;padding-top: 160px;padding-bottom:140px;">
+            <div class="container">
+                <div class="project-details__top">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="project-details__title-box">
+                                <div class="project-details__title-left">
+                                    <h2>Service Agreement</h2>
+                                </div>
+                            </div>
+                            <div class="project-details__img-box" style="padding-bottom: 0px;">
+                                <img src="assets/images/service.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-details__content"
+                        style="padding-top:40px; padding-left: 10px; padding-right: 10px; padding-bottom: 10px; border: 1px solid #e6e6e6; margin-top: 0px; border-radius:3px;">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="project-details__content-left">
+                                    <p class="project-details__content-text-1" style="text-align:left;">The following service agreement is entered into between : </p>
+                                    <p class="project-details__content-text-1" style="text-align:left;"><b>1.	ND Logistics Private Limited, </b>19/33, Krishnaswamy Nagar, 50 Feet Road,Ramanathapuram, Coimbatore 641 045.<br> GST No. 33AAGCN5409B1ZX,
+                                    PAN No. AAGCN5409B.</p>
+                                    <h3>and</h3>
+                                    <p class="project-details__content-text-2" style="text-align:left;"><b>2. </b>
+                                    <?php if (isset($_COOKIE['fname'])) {
+                                                echo "$fname";
+                                            } ?>&nbsp;
+                                        <?php if (isset($_COOKIE['lname'])) {
+                                                echo "$lname";
+                                            } ?> <span
+                                            style="font-weight:400;color:#878986;">from</span>
+                                            <?php if (isset($_COOKIE['address'])) {
+                                                echo "$address";
+                                            } ?> <span
+                                            style="font-weight:400;color:#878986;">,Coimbatore - <?php if (isset($_COOKIE['pincode'])) {
+                                                echo "$pincode";
+                                            } ?>. GST No. XXXXXXXXXXXX.<br>on the 2023 of year.</span>
+                                    </p>
+                                    <p class="project-details__content-text-3" style="text-align:left;"><b>ND Logistics Private Limited (NDL)</b> will provide waste management service within the framework of</p>
+                                    <p class="project-details__content-text-3" style="text-align:left;">
+                                    <ul style="text-align:left;font-weight: 400;">
+                                        <li>Provide logistics services to pick up segregated waste from Monday through Saturday. </li>
+                                        <li>Only waste packed in bins(organic) and bags(dry) will be transported.</li>
+                                        <li>ND Logistics Private Limited is committed, empanelled and authorised to handle ONLY SEGREGATED WASTE. In case of mixed waste being collected and kept for pickup, NDL will send quality reports on the matter, for first 3 instances, and if no action is taken by the community to correct the same, pickup of waste will be stopped.</li>
+                                        <li>Logistics calendar will be shared with community and any unexpected break in service will be communicated. </li>
+                                        <li>The pickup timing will be communicated by email, before the day of starting services. Timings may vary based on the traffic situation in the city.  Also, any change in vehicle route will also be communicated.</li>
+                                    </ul>
+                                    </p>
+                                    <p class="project-details__content-text-2" style="text-align:left;">
+										<b style="color:black"><?php if (isset($_COOKIE['fname'])) {
+                                                echo "$fname";
+                                            } ?>'s responsibilities will comprise of</b>
+                                    </p>
+									
+                                    <p class="project-details__content-text-3" style="text-align:left;">
+                                    <ul style="text-align:left;font-weight: 400;">
+                                        <li>Ensuring source segregation at all waste generation points. </li>
+                                        <li>Provide required infrastructure to facilitate segregation (green bin, red bin and blue bag) and collection (pushcarts, bins, brush, bags, gloves and mask) </li>
+                                        <li>Ensure collection of waste, using collection kit, as per the guidelines given by NDL. This will avoid mixed waste being collected. </li>
+                                        <li>Keep waste ready by 10 am, packed in bins(organic)(to be kept covered) and bags(dry waste)(packed and tied), at the pickup point, as close to the gate as possible. All Waste will be packed in bins and bags as required. Pickup point should be within the premises. </li>
+                                        <li>Loading help to be given, to load waste, in the vehicle. </li>
+                                        <li>Waste that is generated and segregated by residents must not be disposed outside the premises. </li>
+                                    </ul>
+                                    </p>
+									<br>
+                                    <p class="project-details__content-text-3" style="text-align:left;"><b>Waste Pickup Clause</b><br><b>Organic waste</b> - Food, Vegetable peels, Fruits & Flowers. Such waste has to be stored in Green Bins.<br>
+									<b>Dry waste</b> - plastic, papers, wood, metal waste packed in Blue bags. Bottles has to be kept separately and given.<br>
+									The above mentioned waste should not be mixed with one another and if found mixed will not be picked.<br>
+									<br><b>Financials and other terms <b><br></p>
+									<br>
+                                    <p class="project-details__content-text-3" style="text-align:left;"><b>></b>1.Pickup charges  : Organic waste(60 ltr green bin) – Rs.100/- per bin plus GST. Dry waste (100 ltr bag) - Rs.50/- per bag plus GST.  
+									</p>
+                                    <p class="project-details__content-text-3" style="text-align:left;"><b>></b>2.Approximate monthly consumption to be maintained as advance, from which daily consumption will be reduced and invoice sent.</p>
+                                    <p class="project-details__content-text-3" style="text-align:left;"><b>></b>3.The agreement can be terminated by either party on service of ONE month’s notice or on mutual agreement, once all dues from both sides have settled. This agreement is deemed to be extended unless any request for changes.</p>
+                                    <br><br>
+									<p style="display: flex;justify-content: space-between;"><b>For ND Logistics Private Limited<br>Authorised Signatory</b><b>For <?php if (isset($_COOKIE['fname'])) {
+                                                echo "$fname";
+                                            } ?><br>Authorised Signatory</b></p><br>
+                                    <div class="request-a-pickup__tab-content-btn-box" style="text-align:center;">
+                                        <button id="rzp-button2" type="submit"
+                                            class="thm-btn request-a-pickup__tab-content-btn">Pay Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <?php include 'footer.php'; ?>
 
@@ -191,44 +373,46 @@ if (isset($_COOKIE['lname'])) {
     <input type="hidden" name="razorpay_signature" id="razorpay_signature">
 </form>
 <script>
-    var responseData = ''
-    $.ajax({
-   url: "https://api.unwastenetwork.com/api/authentication/login",
-    // url: "http://localhost:7071/api/authentication/login",
-    type: "POST",
-    data: JSON.stringify({
-        username: "admin@unwastenetwork.in",
-        password: "admin@123"
-    }),
-    contentType: "application/json; charset=utf-8",
-    dataType: "json",
-    success: function (response) {
-        // 'response' contains the data returned from the server
-        responseData = response.token;
+//     var responseData = ''
+//     $.ajax({
+//    url: "https://api.unwastenetwork.com/api/authentication/login",
+//     // url: "http://localhost:7071/api/authentication/login",
+//     type: "POST",
+//     data: JSON.stringify({
+//         username: "admin@unwastenetwork.in",
+//         password: "admin@123"
+//     }),
+//     contentType: "application/json; charset=utf-8",
+//     dataType: "json",
+//     success: function (response) {
+//         // 'response' contains the data returned from the server
+//         responseData = response.token;
 
-        // You can now use the 'responseData' variable as needed
-        // console.log("Response Data:", responseData);
-    },
-    error: function (error) {
-        // Handle error cases here
-        console.error("Error:", error);
-    }
-    });
+//         // You can now use the 'responseData' variable as needed
+//         // console.log("Response Data:", responseData);
+//     },
+//     error: function (error) {
+//         // Handle error cases here
+//         console.error("Error:", error);
+//     }
+//     });
 
 
     var options = <?php echo $json ?>;
     options.handler = function (response) {
         var loc = localStorage.getItem('3eab60ec988c461f0cfc0e6ed6ed');
+
         var cache = JSON.parse(atob(loc));
+        console.log(cache);
         cache.pid = response.razorpay_payment_id;
         // debugger;
         $.ajax({
-           url: "https://api.unwastenetwork.com/api/Customer/Add",
-            // url: "http://localhost:7071/api/Customer/Add",
+        //  url: "https://api.unwastenetwork.com/api/Customer/Add",
+            url: "http://localhost/website/api.php",
             type: "POST",
-            beforeSend: function (request) {
-                request.setRequestHeader("Authorization", "Bearer "+responseData);
-            },
+            // beforeSend: function (request) {
+            //     request.setRequestHeader("Authorization", "Bearer "+responseData);
+            // },
             data: JSON.stringify(cache),
             contentType: "application/json; charset=utf-8",
             dataType: "json",
@@ -255,6 +439,21 @@ if (isset($_COOKIE['lname'])) {
     document.getElementById('rzp-button1').onclick = function (e) {
         rzp.open();
         e.preventDefault();
+    }
+    document.getElementById('rzp-button2').onclick = function (e) {
+        rzp.open();
+        e.preventDefault();
+    }
+</script>
+<script>
+    const error = document.getElementById("appartment");
+    const error1 = document.getElementById("commercial");
+    if(cache.servicetype == "Appartment"){
+        error.style.display = 'block';
+        error1.style.display = 'none';
+    }else{
+        error.style.display = 'none';
+        error1.style.display = 'block';
     }
 </script>
 <!-- <script>

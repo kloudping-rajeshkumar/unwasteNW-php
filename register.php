@@ -75,9 +75,7 @@
 
                                 <div class="col-xl-12 col-lg-12 col-md-12">
                                     <div class="contact-one__form-input-box">
-                                        <input type="text" id="phone" placeholder="Phone number" name="phone"
-                                            autocomplete="off" style="text-align:center;" required
-                                            title=" Please enter mobile number" required>
+                                    <input type="text" id="phone" name="phone" placeholder="Phone number" pattern="[0-9]*" maxlength="10" minlength="10" autocomplete="off" style="text-align:center;" required>
                                         <span class="error">
 
                                     </div>
@@ -293,22 +291,22 @@
 <script src="assets/js/wostin.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 <script>
-    $(document).ready(function () {
+    // $(document).ready(function () {
 
-        $('#validated').validate({ // initialize the plugin
-            rules: {
-                name: {
-                    required: true,
-                    name: true
-                },
-                phone: {
-                    required: true,
-                    phone: true
-                }
-            }
-        });
+    //     $('#validated').validate({ // initialize the plugin
+    //         rules: {
+    //             name: {
+    //                 required: true,
+    //                 name: true
+    //             },
+    //             phone: {
+    //                 required: true,
+    //                 phone: true
+    //             }
+    //         }
+    //     });
 
-    });</script>
+    // });</script>
 <script>
 
 
